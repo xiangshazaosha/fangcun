@@ -1,0 +1,25 @@
+方寸 FANGCUN — 适用范围与归属说明
+
+当前自有受保护部分采用笑爷非商业同许可源码公开许可 2.0，完整条件见 LICENSE。
+公开维护者：笑爷 / xiangshazaosha，GitHub ID 267697669。
+原项目：https://github.com/xiangshazaosha/fangcun
+Copyright (c) 2026 相应作者及权利人；各自的权利保留，不转让版权。
+
+覆盖：依法有权许可的 Fangcun Skill 指令、启动器/导出器、演示运行时、
+互动模块、模板、文档和素材中的自有受保护表达，以及相应改编部分。
+不覆盖：独立客户内容、秘密、独立作品、思想/方法和各自另有许可的第三方部分。
+素材/来源说明：docs/assets-and-rights.md；指纹记录在 skill 的 references/provenance.json。
+
+已知独立第三方边界（保留其现有法律文件，不撤回其原授权）：
+- frontend-slides 的固定舞台原有部分：MIT，版权声明见 THIRD-PARTY-NOTICES.txt。
+- Three.js 0.180.0：MIT，见运行时 vendor/THREE-LICENSE.txt。
+- Noto Sans SC：SIL OFL 1.1，见运行时 fonts/OFL.txt。
+- Playwright 等开发依赖及其传递依赖：各自原许可，版本见 package-lock.json。
+如新增或再分发其他依赖，应另外核对其实际许可和附带声明；本清单不替代完整依赖审计。
+
+方寸标志只作原项目归属说明，不自动授予商标营销权。
+海岸/锦鲤等生成素材不据此宣称当然具有独占版权。
+授权范围仅限实际有权许可的部分；本文件不是权属或法律效力证明。
+旧版本的有效许可保持有效，见 docs/LICENSE-HISTORY.md。
+
+分发时保留本 NOTICE、LICENSE、适用第三方条款及修改声明；提供匹配版本的源码。

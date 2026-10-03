@@ -1,84 +1,276 @@
-方寸非商业源码公开许可 1.0
-Fangcun Noncommercial Source-Available License 1.0
+笑爷非商业同许可源码公开许可 2.0
+Xiaoye Noncommercial Reciprocal Source License 2.0
+Identifier: LicenseRef-Xiaoye-NC-Reciprocal-2.0
+发布日期 / Published: 2026-10-03
 
-许可人：GitHub 账号 xiangshazaosha 所对应的本项目权利人。
-Copyright (c) 2026 Fangcun contributors，限各自依法享有或有权许可的部分。
+项目维护者公开署名：笑爷 / xiangshazaosha（GitHub 用户 ID 267697669）
+联系入口：https://github.com/xiangshazaosha
+Copyright (c) 2026 相应作者及权利人 / respective authors and rightsholders.
+账号署名是公开归属与联系信息，不代替诉讼中所需的主体或权属证明。
 
-本许可为自定义非商业源码公开许可，不是 OSI 意义上的开源许可证。
-本许可的中文正文具有解释效力。未经许可人另行明确书面授权，不得将
-受本许可保护的项目或其修改版、衍生版本用于商业用途。
-本许可约束被许可人的使用，不限制权利人自身的合法使用或另行授权。
+本文件是自定义非商业源码公开许可，不是 OSI 批准的开源许可证。
+中文为解释正文；下附完整英文译文。翻译冲突以中文为准，但不得据此
+排除适用法律规定的强制性权利。本许可不保证在所有司法辖区有效。
 
-一、适用范围与第三方例外
+1. 许可人、范围与权利边界
 
-1. 本许可适用于本项目及其分发副本中许可人有权许可的自有代码、Skill 指令、文档、
-   模板及素材，包括其复制、改编和衍生版本；不改变其他权利人的权利。
-2. 已标注第三方许可证的代码、字体、素材及其原有部分，依各自原许可
-   使用。THIRD-PARTY-NOTICES.txt、fonts/OFL.txt、vendor/THREE-LICENSE.txt
-   以及 docs/assets-and-rights.md 中列明的第三方许可不受本许可替代。
-   第三方原许可允许的商业使用仍由原许可决定。
-3. 本许可只在许可人依法享有著作权或其他可许可权利的范围内适用，
-   不宣称对 AI 生成素材、思想、方法、一般知识或公共领域内容享有
-   独占权利。不保证仓库的每一部分都可获得独立著作权保护。
+许可人是对明确采用本许可的内容依法享有相应权利或有权许可的人，
+并非只因拥有仓库就取得全部内容的权利。本许可涵盖其有权许可的
+代码、Skill 指令、模板、文档及素材（“原始内容”），仅限依法受保护
+的表达及可许可权利。各作者保留自己的权利，不发生著作权转让。
 
-二、允许的非商业使用
+第三方、已明确采用其他许可的部分、公共领域内容、思想、方法、接口
+概念、一般知识及独立作品不因此转为本许可。不得据此声称对 AI 输出
+或生成素材当然享有独占权利。法定合理使用及其他无需许可的权利不
+受限制；依法无需本许可的行为不因本文件而变成侵权。
 
-在遵守本许可的前提下，允许为非商业目的阅读、学习、运行、复制、
-修改、改编本项目，以及公开分享原版或修改版。分发时须同时提供本
-许可及适用的第三方许可，保留原有权利声明，清楚标注自己的修改；
-不得移除非商业限制或将受限部分转授为允许商业使用的许可。
+2. 涵盖作品与对应源码
 
-三、商业用途限制
+“涵盖作品”包括原始内容，以及复制、修改、翻译、改编或实质包含其
+受保护表达的作品或部分；修改、改名、换界面、移植语言或拆成片段
+不当然消除原有权利与许可条件。独立作品的并列分发、接口调用、数据
+交换或仅采用相似功能/思路，不因此自动成为涵盖作品。
 
-本许可不授予商业使用权。商业用途包括以取得直接或间接商业利益、
-商业报酬或经营优势为目的的下列活动，无论是否修改或重新命名项目：
+“对应源码”是涵盖作品及其受本许可约束的改编部分的首选修改形式，
+包括源码、构建/安装/运行所需脚本和非敏感配置、模板及所需修改。
+可用脱敏示例和配置占位符代替真实业务输入，但不能故意缺失受限
+核心、只提供不可修改产物或以不可获得的私有依赖架空源码义务。
+通用工具、未修改的独立第三方依赖不须重复发布；应提供依赖与版本
+说明并履行其原许可。独立客户内容、密钥、个人信息、客户业务数据、
+会话记录、日志及与涵盖作品无关的私有代码不属于须公开的对应源码。
 
-1. 出售、出租、收费提供本项目、Skill、模板、素材或其衍生版本；
-2. 将受限部分集成到收费产品、商业软件、SaaS、平台或商业服务中；
-3. 使用受限部分承接付费演示制作、咨询、培训、定制或其他客户服务；
-4. 使用受限部分服务于企业经营、内部业务培训、广告、营销或销售；
-5. 通过广告、订阅、赞助对价等方式商业化受限项目或其衍生版本。
+3. 非商业授权与期限
 
-不得以“免费提供”“仅改名”“仅使用未修改版本”或“只收费服务而
-不收费代码”等理由规避上述限制。非营利机构也不因其身份自动获得
-商业使用权；其具体用途应符合第二条。
+在遵守本许可条件的前提下，各许可人就其有权许可的原始内容授予
+全球、非独占、免版税的非商业使用、复制、修改、改编、分发和向公众
+提供的许可，期限限相应权利的保护期。个人私下的非商业修改不要求
+发布。持续合规的既有授权不因维护者改名、改版本或单方改规则而撤回。
+本许可不限制权利人自身合法使用或另行授权。
 
-如需商业使用，应先向许可人申请并取得针对该用途的明确书面授权。
-商业授权的范围、费用及其他条件由双方另行约定。本文件不承诺发放
-商业授权，也不预设违约金、授权费或诉讼赔偿金额。
+需要依赖本许可取得授权的行为，须符合其全部条件。仅浏览网页不被
+视为接受额外付费或赔偿合同；本许可不虚构用户签署过商业协议。
 
-四、生成成果与独立作品
+4. 商业用途与防规避
 
-本许可不取得用户自己的稿件、数据、商标或独立创作内容的所有权。
-生成或交付的演示稿如包含本项目受保护的代码、模板或素材，其对应
-部分仍受本许可约束；生成动作本身不解除商业限制。仅参考一般思路、
-未复制或改编受保护表达的独立作品，不因本许可而自动成为衍生作品。
-用户对所提供内容和第三方素材的合法使用自行负责。
+商业用途是以直接或间接商业利益、报酬或经营优势为目的使用涵盖
+作品，包括：出售/出租/收费分发；商业产品、插件、SaaS 或托管服务；
+付费开发、制稿、咨询、培训或其他客户服务；企业经营及内部业务用途；
+广告、营销、销售，以及订阅、广告收入或有对价的赞助支持的服务。
 
-五、违反条件
+本许可不授权上述用途，即使作品未修改、服务对用户免费、只收费
+部署/维护/服务、仅取得间接收入，或换品牌后称为自己的产品，也不能
+据此规避。自然人、学校、公益机构或其他组织的身份不自动决定用途；
+员工个人与经营无关的非商业学习不因其雇佣身份自动变为商业用途。
+使用者支付第三方模型/API/云资源费用本身不使个人非商业实验变为
+商业使用，但不能据此为客户商业业务或收费服务取得授权。
 
-超出本许可范围或违反其条件的使用，不属于本许可授权范围；许可人
-可以依法要求停止相关行为并主张适用法律提供的救济。承担何种责任、
-是否构成侵权以及赔偿数额，由适用法律和具体事实决定，而非本文件
-自动认定。依法享有的合理使用及其他法定权利不受本许可限制。
+5. 署名、分发与下游授权
 
-六、不授予的权利
+复制或分发涵盖作品的全部或实质部分时，应同时提供本许可完整文本、
+适用的权利声明和第三方许可，合理标注原项目与来源，并明确标注自己
+的修改。不得去除非商业与源码公开条件，不得对涵盖部分添加与本许可
+冲突的限制、转授商业许可或以技术措施使接收者无法行使已获授权。
 
-本许可不授予商标、商号、标识或专利使用权，不表示许可人为任何
-使用者或衍生产品背书。方寸 / FANGCUN 标识不得用于暗示官方合作、
-官方出品或授权关系。其他未明确授予的权利由相应权利人保留。
+每位接收者直接从有权许可人取得本许可范围内的授权，并须自己合规。
+下游作者仅就自己有权许可的改编/新增部分按同一许可授权，保留其
+版权；独立可分离作品与第三方部分不被强制改换许可。归属署名不等于
+允许用项目名称或 Logo 营销，也不代表原作者背书。
 
-七、免责与适用边界
+6. 对外分发及联网提供的源码公开义务
 
-在适用法律允许的范围内，本项目按现状提供，不保证适销性、特定
-用途适用性或不侵权；许可人不承担法律允许排除的责任。不得据本条
-排除法律不允许排除的责任。条款部分无效不当然使其余条款无效。
-本许可不约定专属法院或固定司法辖区，由适用的冲突法及实体法确定。
+当你分发涵盖作品、向他人提供下载/副本，或允许他人通过网络直接
+使用/交互涵盖作品（包括未经修改的部署）时，须同时以本许可公开
+提供完整对应源码及适用声明。仅用工具生成不含受保护表达的独立
+结果，不触发本条；但使用工具本身仍须属于获授权的用途。
 
-English summary (not a substitute for the Chinese terms):
-You may study, use, modify and share the covered first-party materials for
-noncommercial purposes with these terms and required notices preserved.
-Commercial use of the original or derivative versions requires separate
-written authorization. Third-party components remain under their own
-licenses. No exclusive rights in AI-generated or independently created
-material are asserted. This is source-available, not OSI-approved open source.
+源码应可无偿获取，无需购买、付费订阅、保密协议或额外的限制性
+授权；在发行说明、界面或同等显著位置提供有效地址。对应源码必须
+匹配所提供的版本，并在提供期间及最后一次提供后三年内持续可用。
+依赖链接须说明准确版本；若原第三方许可另有源码义务，另行履行。
+
+本条不要求公开客户资料、秘密或上述排除内容，也不授权你泄露它们。
+不得以保密为由隐匿受限代码；应将独立数据与代码分离并提供安全的
+示例。如无法在不侵害他人权利或泄密的情况下履行，应在对外提供前
+取得相应另行授权，而不是先泄露内容或先违规提供服务。
+
+7. 生成成果及独立权利
+
+本许可不取得用户输入、客户稿件或独立生成代码/文档的所有权，不
+主张一切经工具处理的结果均为衍生作品。结果包含原始内容的受保护
+表达时，仅该涵盖部分及真正构成其改编的部分须遵守本许可。输出为
+HTML、图片、包或文本，或将代码隐藏/打包，不解除相应条件。
+独立内容能够被单独合法使用时，不因使用过本工具而被一并禁止商用；
+但这不为曾经未经授权的商业工具使用补发许可。
+
+8. 另行商业授权
+
+商业使用必须事先获得对该用途、版本及相应权利有权授权的人明确
+书面许可。费用、期限、地域、允许的部署/人数、源码义务豁免、再分发
+及责任由该协议另定；公开 issue、无回应、赞助或提交贡献本身都不
+构成商业授权。维护者不承诺授予授权，也不得未经同意替其他作者或
+第三方授予商业权利。多权利人作品可能需要分别获得许可。
+
+9. 贡献与版本变更
+
+贡献者保留自己新增内容的权利。只有其明确同意将贡献按本许可提供
+时，该贡献才按本许可接收；仓库拥有者不因接收贡献自动取得转让或
+商业再许可权。商业双许可授权须另行明确取得，不能推定。
+
+本许可仅适用于明确采用 2.0 的版本/内容，不追溯取消合法取得的旧版
+许可或其他独立授权。旧版代码、第三方或其他已授权内容仍可能按其
+原许可使用；新受保护改动须另行遵守其适用许可。不强制自动升级到
+未来版本；未来变更须另行发布并明确适用范围。
+
+10. 违约、终止与补救
+
+超范围或违反条件的行为不属本许可授权；相应授权在违反时终止。
+首次非故意且非商业的署名/源码提供等可补救违规，如在收到书面通知
+后三十日内完全纠正、实际补足公开义务并合理处理已知下游遗漏，授权
+在上述条件均满足时自完成纠正之日起恢复；故意、重复或未经授权商业使用的恢复须另获
+相应许可人书面同意。补救或恢复不自动免除既往依法应承担的责任，
+也不补发商业授权。未违规下游使用者的独立有效授权不因此自动终止。
+
+11. 保留权利、责任与法律边界
+
+本许可不授予商标、商号或专利权；合理归属标注不等于商标营销许可。
+未明确授予的权利由相应权利人保留，不影响其他来源的独立合法授权。
+违例责任、是否构成侵权、停止行为及赔偿由适用法律和证据决定。
+本许可不设自动授权费、罚款、固定违约金或固定赔偿，不保证胜诉。
+
+在法律允许范围内，内容按现状提供，不作适销性、特定目的适用性、
+准确性或不侵权保证；不承担法律允许排除的责任。不排除法律不允许
+排除的责任。部分条款无效不当然使其余条款无效。未指定专属法院或
+适用国家，由依法适用的规则确定。正式商业授权或维权须另行评估。
+
+-------------------- English translation --------------------
+
+1. Licensors, scope and limits
+Each Licensor is a person lawfully holding or authorized to license the relevant
+rights in material expressly offered under this license, not automatically the
+repository owner. Original Material includes their code, skill instructions,
+templates, documentation and assets, only to the extent of protected expression
+and licensable rights. Authors retain ownership; no copyright is assigned.
+Third-party or separately licensed material, public-domain material, ideas,
+methods, interface concepts, general knowledge and independent works are not
+relicensed. No exclusive rights in AI outputs are presumed. Statutory exceptions
+and uses not requiring permission are unaffected.
+
+2. Covered Works and Corresponding Source
+Covered Works are Original Material and works or portions copying, modifying,
+translating, adapting or substantially incorporating its protected expression.
+Renaming, restyling, porting or splitting it does not itself remove rights or
+conditions. Mere aggregation, interface calls, data exchange or similar ideas
+or functionality do not automatically create Covered Works.
+Corresponding Source is the preferred modifiable form of covered material and
+covered adaptations, including necessary source, build/install/run scripts,
+non-sensitive configuration, templates and changes. Sanitized examples and
+placeholders may replace real business input, but source obligations must not
+be evaded by missing covered core, unmodifiable output or unavailable private
+dependencies. General tools and unmodified independent third-party dependencies
+need not be republished; identify dependencies/versions and honor their terms.
+Independent client content, secrets, personal information, client business data,
+session records, logs and unrelated private code are excluded.
+
+3. Noncommercial grant and duration
+Subject to all conditions, each Licensor grants a worldwide, non-exclusive,
+royalty-free license to use, copy, modify, adapt, distribute and make available
+their licensable Original Material solely for noncommercial purposes for the
+duration of the relevant rights. Private noncommercial modifications need not
+be published. Compliant existing grants are not withdrawn by renaming, new
+versions or unilateral rule changes. Rightsholders may use their own rights or
+grant other licenses. Activities requiring this license must comply with it;
+mere browsing does not establish a paid or damages contract.
+
+4. Commercial Use and anti-circumvention
+Commercial Use seeks direct or indirect commercial advantage, compensation or
+business benefit. It includes sale, rental or paid distribution; commercial
+products/plugins, SaaS or hosting; paid development, presentation-making,
+consulting, training or client services; business/internal operational use;
+advertising, marketing or sales; and subscription-, ad-revenue- or compensated
+sponsorship-supported services. None is authorized here, even if unmodified,
+free to end users, charged only as deployment/maintenance/services, indirectly
+monetized or rebranded. A person's or organization's status alone is not
+determinative; an employee's genuinely personal noncommercial study is not
+commercial merely because of employment. Paying external model/API/cloud costs
+does not itself commercialize a personal noncommercial experiment, but does
+not authorize clients' commercial business or paid services.
+
+5. Attribution, distribution and downstream licensing
+Copies or substantial portions of Covered Works must include this full license,
+applicable rights notices and third-party terms, reasonable project/source
+attribution and prominent change notices. Do not remove noncommercial/source
+conditions, impose conflicting conditions, grant commercial sublicenses or
+technically prevent recipients exercising licensed rights. Each recipient is
+licensed directly by authorized Licensors and must comply independently.
+Downstream authors license only their licensable covered adaptations/additions
+under these same terms and retain ownership. Independent separable works and
+third-party components are not forced to change licenses. Attribution grants
+neither branding/marketing rights nor endorsement.
+
+6. Source for distribution and network use
+When distributing Covered Works, providing downloads/copies, or allowing others
+to directly use/interact with them over a network, including unmodified hosted
+deployments, simultaneously make complete Corresponding Source and notices
+publicly available under this license. Generating independent results containing
+no covered protected expression does not trigger this clause, but the tool use
+itself must be authorized. Source must be obtainable at no charge without a
+purchase, paid subscription, NDA or additional restrictive license. Provide a
+working prominent link in release documentation, the interface or equivalent.
+Source must match the provided version and remain available throughout such
+availability and for three years afterward. Identify exact dependency versions
+and separately honor any third-party source obligations.
+This never requires or authorizes disclosure of excluded client data or secrets.
+Separate independent data from code and provide safe examples; confidentiality
+does not excuse concealing covered code. Obtain appropriate separate permission
+before provision if compliance would otherwise violate rights or reveal secrets.
+
+7. Outputs and independent rights
+No ownership in user input, client manuscripts or independently generated code
+or documents is taken, and not every tool-processed result is a derivative.
+Only covered protected expression and actual adaptations in outputs remain
+subject to these terms, regardless of HTML, images, packages, text or hidden/
+bundled form. Separately usable independent material is not barred from
+commercial use merely because the tool was used, but that does not retroactively
+authorize an unauthorized commercial use of the tool.
+
+8. Separate commercial permission
+Commercial Use requires prior explicit written permission from persons entitled
+to license the relevant purpose, version and rights. Fees, term, territory,
+deployment/user scope, source exemptions, redistribution and liability require
+separate agreement. Public issues, silence, sponsorship and contributions do not
+themselves grant commercial rights. Maintainers need not offer permission and
+cannot grant others' rights without authority; multiple permissions may be needed.
+
+9. Contributions and license versions
+Contributors retain rights in their additions. Accept a contribution under these
+terms only with the contributor's explicit agreement; receipt does not establish
+assignment or commercial relicensing rights. Commercial dual-licensing authority
+requires separate express permission and is not presumed. This license covers
+only versions/material expressly adopting 2.0; it does not retroactively revoke
+valid older or separate grants. Older code or third-party/separately licensed
+material may remain usable under its original terms; new protected changes
+require their own applicable permission. Future license versions are not automatic.
+
+10. Violations, termination and cure
+Out-of-scope or noncompliant acts are unauthorized, and the relevant grant ends
+upon violation. A first unintentional, noncommercial and curable notice/source
+violation is reinstated from completion of cure if fully corrected within
+30 days of written notice, source obligations supplied and known downstream
+omissions reasonably addressed. Intentional, repeated or unauthorized commercial
+use requires written reinstatement by the relevant Licensor. Cure/reinstatement
+does not automatically release accrued lawful liability or grant commercial
+rights. Independent valid grants to compliant downstream recipients do not
+automatically terminate.
+
+11. Reserved rights, remedies and legal limits
+No trademark, trade-name or patent rights are granted; reasonable attribution
+is not marketing permission. Unexpressed rights are reserved without impairing
+independent valid permissions. Responsibility, infringement, cessation and
+damages depend on applicable law and evidence; there are no automatic fees,
+fines, liquidated damages, fixed awards or litigation guarantees.
+To the extent permitted by law, material is provided as is, without warranties
+of merchantability, fitness, accuracy or non-infringement, and liability that
+may lawfully be excluded is excluded. Non-excludable liability is unaffected.
+Partial invalidity does not automatically invalidate other terms. No exclusive
+court or country of applicable law is designated; lawful rules determine these.
+Obtain case-specific advice for commercial agreements or enforcement.

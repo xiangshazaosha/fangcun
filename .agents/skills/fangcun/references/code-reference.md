@@ -718,4 +718,4 @@ function setDuoMode(slide, mode){
 
 ## C43｜非商业许可的可移植交付
 
-许可维护源为仓库根 LICENSE，skill/LICENSE 为逐字相同的发行副本，由 scripts/check_project.py 检查一致性。new_deck.py 与 export_background.py 从 skill/LICENSE 复制进导出包，并在 README 标明限制；独立背景 manifest 包含该文件指纹。字体 OFL、Three.js MIT、frontend-slides 原有 MIT 声明继续独立保留，不重新许可。生成的客户独立内容不因此归方寸所有；使用受限代码/模板商用需另行书面授权。这里不声称思想、独立实现或 AI 图片均具有独占版权。
+许可及范围维护源为仓库根 LICENSE/NOTICE，skill 中两文件为逐字相同的发行副本，由 scripts/check_project.py 检查一致性。new_deck.py 与 export_background.py 复制两文件进导出包并在 README 标明条件；背景 manifest 包含两者指纹。自有受保护部分采用统一许可 2.0，对外分发/联网提供须保留同许可并公开匹配版本的对应源码，提供期间及结束后三年可获取；私下改版不强制公开。客户独立内容、秘密和日志排除。字体 OFL、Three.js MIT、frontend-slides 原有 MIT 继续独立保留，旧版有效授权不撤回。商用需另行书面授权；不声称思想、独立实现或 AI 图片均具有独占版权。

@@ -46,6 +46,7 @@ class StarterTest(unittest.TestCase):
         self.assertFalse((deck / 'media/carrier').exists())
         self.assertTrue((deck / 'THIRD-PARTY-NOTICES.txt').exists())
         self.assertEqual((deck / 'LICENSE').read_bytes(), (ROOT / 'LICENSE').read_bytes())
+        self.assertEqual((deck / 'NOTICE').read_bytes(), (ROOT / 'NOTICE').read_bytes())
         self.assertTrue((deck / 'fonts/OFL.txt').is_file())
         self.assertTrue((deck / 'vendor/THREE-LICENSE.txt').is_file())
 

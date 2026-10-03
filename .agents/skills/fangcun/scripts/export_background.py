@@ -32,6 +32,7 @@ def main():
         content = '<video muted autoplay loop playsinline poster="media/poster.png" src="media/background.mp4"></video>'
         extra = '这是本机可选示例媒体，公开再分发权未确认，不进入 GitHub。减弱动效时暂停视频，保留后备图。'
     files[SKILL / 'LICENSE'] = Path('LICENSE')
+    files[SKILL / 'NOTICE'] = Path('NOTICE')
     missing = [str(p) for p in files if not p.is_file()]
     if missing:
         parser.error('Missing optional dependencies: ' + ', '.join(missing))
@@ -55,6 +56,8 @@ Python 3.10+：双击「启动背景.bat」或执行 `python serve.py`，只绑�
 来源 SHA-256 见 manifest.json；许可证独立保留。锦鲤/海岸为原项目确认的生成素材，公开分发前复核用途。
 本包的方寸自有受保护部分未经另行书面授权不得用于商业用途；分发须保留 LICENSE。
 Three.js 等第三方组件仍按各自原许可证使用，本许可不宣称生成图片具有独占著作权。
+对外分发/联网提供时保留 NOTICE、同一许可，并公开匹配版本的涵盖部分对应源码及自己的改动。
+本包已包含背景入口/脚本与资源；独立客户资料、密钥及日志不要求公开，源码须提供期间及结束后三年可获取。
 ''', encoding='utf-8')
     manifest = {'background': args.background, 'entry': 'index.html', 'sources': {str(rel).replace('\\', '/'): hashlib.sha256(p.read_bytes()).hexdigest() for p, rel in files.items()}}
     (output / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8')

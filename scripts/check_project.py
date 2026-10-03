@@ -15,6 +15,11 @@ def check():
     skill_license = SKILL / 'LICENSE'
     if not license_file.is_file() or not skill_license.is_file() or license_file.read_bytes() != skill_license.read_bytes():
         problems.append('Missing or inconsistent Fangcun noncommercial license')
+    notice = ROOT / 'NOTICE'
+    if not notice.is_file() or not (SKILL / 'NOTICE').is_file() or notice.read_bytes() != (SKILL / 'NOTICE').read_bytes():
+        problems.append('Missing or inconsistent Fangcun scope notice')
+    if license_file.is_file() and 'LicenseRef-Xiaoye-NC-Reciprocal-2.0' not in license_file.read_text(encoding='utf-8'):
+        problems.append('Unexpected current license version')
     registry = json.loads((SKILL / 'references/styles/registry.json').read_text(encoding='utf-8'))
     ids = set()
     code = (SKILL / 'references/code-reference.md').read_text(encoding='utf-8')

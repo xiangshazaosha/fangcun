@@ -98,6 +98,7 @@ def main():
     (output / 'deck.json').write_text(json.dumps(config, ensure_ascii=False, indent=2), encoding='utf-8')
     shutil.copy2(SKILL / 'scripts/serve.py', output / 'serve.py')
     shutil.copy2(SKILL / 'LICENSE', output / 'LICENSE')
+    shutil.copy2(SKILL / 'NOTICE', output / 'NOTICE')
     (output / '启动演示.bat').write_text('@echo off\nchcp 65001 >nul\ncd /d "%~dp0"\npython --version >nul 2>&1\nif errorlevel 1 (py -3 serve.py) else (python serve.py)\npause\n', encoding='utf-8')
     (output / 'README.md').write_text(f'''# {config['title']}
 
@@ -120,6 +121,8 @@ logo 为空字符串是不放标志。background=none/ocean/video，video 需相
 随包资源许可和私有媒体使用限制见 ASSETS.md。客户内容和本包不默认进入 GitHub。
 本包含方寸非商业许可组件，未经另行书面授权不得商用。分发须保留 LICENSE 及第三方许可。
 客户自己的文稿不因此归方寸所有；独立第三方部分仍按原许可使用。
+对外分发或供人联网使用须公开涵盖部分的匹配版本对应源码，保留同一许可及 NOTICE。
+源码包括本包内生成器/模板/脚本及其受限改动；独立客户内容、密钥和日志不用也不得因此公开。
 ''', encoding='utf-8')
     subprocess.run([sys.executable, str(output / 'build_deck.py')], check=True)
     print(output)
