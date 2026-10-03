@@ -96,8 +96,8 @@
     },
     "references/code-reference.md": {
       "sourceSHA256": "d7e0789108d7fbf55eb62def383645bd6ed790dcabaf51d5bba8584215f58caf",
-      "snapshotSHA256": "11a67110a6502dacf516480542b60ccfce858ab4e30b35d2593ded89ecb030a4",
-      "adaptation": "Fangcun user-feedback revision: mandatory media intake, content-led games and visible controls; original YanDeck workspace unchanged."
+      "snapshotSHA256": "48798fc2f69c23c31ce7bfdf92f97b290b9349176e50d4b9b53ccff2c4a2e6b7",
+      "adaptation": "Fangcun intake clarification: mandatory Logo choice, text-only wordmark design, particle text alternatives and custom input; original workspace unchanged."
     },
     "references/design-language.md": {
       "sourceSHA256": "a4eb2100b946a2bb38e25069ad47876ba2f4ce0c07b0fd0c18c0a4665b6b9be3",
@@ -110,13 +110,13 @@
     },
     "references/production-workflow.md": {
       "sourceSHA256": "d42a3884efa109e64ab8e3c606e7d3369a73d4e956b4d767090d4caf9e16ef62",
-      "snapshotSHA256": "6d16a34f477e9ec2ab0790c1430c47736312d84488ed3623c644179aec2ab32a",
-      "adaptation": "Fangcun user-feedback revision: mandatory media intake, content-led games and visible controls; original YanDeck workspace unchanged."
+      "snapshotSHA256": "30a490b74d9724f58d6c11b237afea18e18e39992cd0f95ce2c3ccd376ac06db",
+      "adaptation": "Fangcun intake clarification: mandatory Logo choice, text-only wordmark design, particle text alternatives and custom input; original workspace unchanged."
     },
     "references/qa-checklist.md": {
       "sourceSHA256": "628c72cab848ceff899b79f5847da62670394115919c7b97b5a9276561456ed9",
-      "snapshotSHA256": "47794f0fb8c7133759d439deb41d3083eab3eb4855953de8d0d74538a727519c",
-      "adaptation": "Fangcun user-feedback revision: mandatory media intake, content-led games and visible controls; original YanDeck workspace unchanged."
+      "snapshotSHA256": "cdaa0252636b28cdd89c6e48f337d8837c44614aa4046eb9e431c654d3a2ebbd",
+      "adaptation": "Fangcun intake clarification: mandatory Logo choice, text-only wordmark design, particle text alternatives and custom input; original workspace unchanged."
     },
     "references/style-catalog.md": {
       "sourceSHA256": "ec9ebf700ddfe44fb091d109a67f622f980813d9b05427dc5cf03b393f8fa61d",
@@ -164,6 +164,8 @@
     "No machine-absolute runtime paths",
     "Background and particle opening are mandatory intake questions unless supplied",
     "Content-led game with consequence/replay is required",
-    "Visible labelled controls use separate viewport space"
+    "Visible labelled controls use separate viewport space",
+    "Logo supports user text with agent-designed wordmark; mandatory choice unless supplied",
+    "Particle text offers 2-3 content-based alternatives and custom input in homepage question"
   ]
 }
