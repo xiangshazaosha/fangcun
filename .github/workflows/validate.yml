@@ -10,3 +10,7 @@ jobs:
           python-version: '3.12'
       - run: python scripts/check_project.py
       - run: python -m unittest discover -s tests -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node tests/test_judgement_game.cjs

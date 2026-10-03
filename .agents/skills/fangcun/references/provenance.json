@@ -96,8 +96,8 @@
     },
     "references/code-reference.md": {
       "sourceSHA256": "d7e0789108d7fbf55eb62def383645bd6ed790dcabaf51d5bba8584215f58caf",
-      "snapshotSHA256": "dde6943c9ad48a735baf688c90a383415a88a0bc4b1203599945836f19ba267e",
-      "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged."
+      "snapshotSHA256": "11a67110a6502dacf516480542b60ccfce858ab4e30b35d2593ded89ecb030a4",
+      "adaptation": "Fangcun user-feedback revision: mandatory media intake, content-led games and visible controls; original YanDeck workspace unchanged."
     },
     "references/design-language.md": {
       "sourceSHA256": "a4eb2100b946a2bb38e25069ad47876ba2f4ce0c07b0fd0c18c0a4665b6b9be3",
@@ -105,16 +105,18 @@
     },
     "references/interaction-patterns.md": {
       "sourceSHA256": "94171bc38459dcab260888b7f2ada9b5d18186f67793b3cd03d285a3865d4462",
-      "snapshotSHA256": "94171bc38459dcab260888b7f2ada9b5d18186f67793b3cd03d285a3865d4462"
+      "snapshotSHA256": "56faec35d0ff52e430bd3b4a3802a7aa58be07a47cbc3ab02b212c3b9b86adc6",
+      "adaptation": "Fangcun user-feedback revision: mandatory media intake, content-led games and visible controls; original YanDeck workspace unchanged."
     },
     "references/production-workflow.md": {
       "sourceSHA256": "d42a3884efa109e64ab8e3c606e7d3369a73d4e956b4d767090d4caf9e16ef62",
-      "snapshotSHA256": "99543f78c9f355b7f2ea655a08c0fa0c86c8315ddb4fdcd0da6938c1e6a6958c",
-      "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged."
+      "snapshotSHA256": "6d16a34f477e9ec2ab0790c1430c47736312d84488ed3623c644179aec2ab32a",
+      "adaptation": "Fangcun user-feedback revision: mandatory media intake, content-led games and visible controls; original YanDeck workspace unchanged."
     },
     "references/qa-checklist.md": {
       "sourceSHA256": "628c72cab848ceff899b79f5847da62670394115919c7b97b5a9276561456ed9",
-      "snapshotSHA256": "45e1622d446b5a71547847ab1165f63116df2351e82bcd0ed472c9e806986685"
+      "snapshotSHA256": "47794f0fb8c7133759d439deb41d3083eab3eb4855953de8d0d74538a727519c",
+      "adaptation": "Fangcun user-feedback revision: mandatory media intake, content-led games and visible controls; original YanDeck workspace unchanged."
     },
     "references/style-catalog.md": {
       "sourceSHA256": "ec9ebf700ddfe44fb091d109a67f622f980813d9b05427dc5cf03b393f8fa61d",
@@ -145,6 +147,11 @@
     "scripts/serve.py": {
       "sourceSHA256": "70beba8feb7c9b058994ace46d5fd15dbeaab4fed137f87ad95bb14062927072",
       "snapshotSHA256": "70beba8feb7c9b058994ace46d5fd15dbeaab4fed137f87ad95bb14062927072"
+    },
+    "assets/modules/judgement-game.js": {
+      "sourceSHA256": "57b4617efef0c8c1dda4f16c70af0495c340b9f7c36b266955c44d69b87e71bd",
+      "snapshotSHA256": "57b4617efef0c8c1dda4f16c70af0495c340b9f7c36b266955c44d69b87e71bd",
+      "adaptation": "Original reusable Fangcun judgement-game module; user course data excluded."
     }
   },
   "twoToneCodeSHA256": "26428ed509ec9d470b67950a618e33dbbeba6ab7b073faaabdb0a316d433d020",
@@ -154,6 +161,9 @@
     "No default media",
     "Private carrier/waves excluded from Git",
     "Historical unit delivery/extraction profiles omitted",
-    "No machine-absolute runtime paths"
+    "No machine-absolute runtime paths",
+    "Background and particle opening are mandatory intake questions unless supplied",
+    "Content-led game with consequence/replay is required",
+    "Visible labelled controls use separate viewport space"
   ]
 }

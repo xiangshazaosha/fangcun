@@ -703,3 +703,13 @@ function setDuoMode(slide, mode){
 ## C40｜背景独立资源交付
 
 唯一导出器：`scripts/export_background.py`。游鱼场景真源仍是 C30 的 media/ocean，避免维护两份代码。输出只含背景所需场景、纹理、库、指针、许可证及入口/启动器/说明/hash 清单，没有演示封面、正文、逐项呈现或翻页。文档真源：`references/backgrounds.md`。目标存在即拒绝覆盖；锦鲤场景不假称有钓鱼玩法；默认海浪仍是私有可选资源。
+
+## C41｜内容判断挑战游戏
+
+唯一通用模块：`assets/modules/judgement-game.js`。接口 `FangcunJudgementGame.create({root, questions, roundCount, randomize})`。每题包含 id/topic/prompt/options（三项）/answer（零起点）/explanation；只用 textContent 写数据。root 内 `data-game` 指定 status/topic/prompt/feedback-title/feedback/next/reset，三个按钮 `data-choice` 各含 `data-choice-text`。
+
+返回 choose/next/reset/getState/destroy。状态 question→answered→下一题或finished；每题只计一次，未作答禁止下一关，结果解释错因，重玩重新抽题并清空分数。无模型/API 调用、后台计时或伪能力评分。具体题库维护在用户稿件生成源，不将用户内容放进模块。
+
+## C42｜可见控制栏与固定舞台分区
+
+播放和风格选择使用有显式文字标签的常驻栏，选择器有对应 label，控件不误翻页。控制栏占据独立视口空间：将其实际高度从可用舞台高度减去，在剩余区域均匀缩放 1920×1080；不要用巨大底部浮层遮正文。截图捕获如隐藏控制栏，必须同时还原完整可用视口。舞台仍保持 16:9，不做手机内容重排。界面布局可因用户成品需求调整，但必须实际核验内嵌浏览器和手机视口中的可见性。
