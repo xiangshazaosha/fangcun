@@ -31,6 +31,7 @@ def main():
         title = '默认海浪动态背景'
         content = '<video muted autoplay loop playsinline poster="media/poster.png" src="media/background.mp4"></video>'
         extra = '这是本机可选示例媒体，公开再分发权未确认，不进入 GitHub。减弱动效时暂停视频，保留后备图。'
+    files[SKILL / 'LICENSE'] = Path('LICENSE')
     missing = [str(p) for p in files if not p.is_file()]
     if missing:
         parser.error('Missing optional dependencies: ' + ', '.join(missing))
@@ -52,6 +53,8 @@ Python 3.10+：双击「启动背景.bat」或执行 `python serve.py`，只绑�
 
 维护源为方寸 skill 中登记的背景资产及 export_background.py；此目录是生成副本，修改源后重新导出到新目录。
 来源 SHA-256 见 manifest.json；许可证独立保留。锦鲤/海岸为原项目确认的生成素材，公开分发前复核用途。
+本包的方寸自有受保护部分未经另行书面授权不得用于商业用途；分发须保留 LICENSE。
+Three.js 等第三方组件仍按各自原许可证使用，本许可不宣称生成图片具有独占著作权。
 ''', encoding='utf-8')
     manifest = {'background': args.background, 'entry': 'index.html', 'sources': {str(rel).replace('\\', '/'): hashlib.sha256(p.read_bytes()).hexdigest() for p, rel in files.items()}}
     (output / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8')

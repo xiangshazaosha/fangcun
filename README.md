@@ -1,5 +1,7 @@
 # 方寸 FANGCUN｜互动演示制作 Skill
 
+**非商业源码公开（Source-available），不是标准开源。** 自有代码、Skill、模板及其修改/衍生版本仅许可非商业使用；未经另行书面授权，**不得用于商业用途**，包括收费产品、付费制稿/培训/咨询及企业经营用途。完整条款见 [LICENSE](LICENSE)，边界和示例见 [许可说明](docs/licensing.md)。第三方组件依原许可证，不随本项目改为非商业许可。
+
 把做互动演示稿的经验变成可复用的制作方法：**理解内容 → 五项需求 → 首页提炼 → 风格与互动 → 浏览器验收 → 可选离线交付**。
 
 核心入口：[SKILL.md](.agents/skills/fangcun/SKILL.md)。项目自动发现 `.agents/skills` 的环境可调用 `$fangcun`；其他环境直接让制作 agent 阅读入口。无需安装到全局 skill 目录。
@@ -78,4 +80,4 @@ decks/                   用户制作目录（Git 忽略）
 .private-assets/         本机可选媒体（Git 忽略）
 ```
 
-项目自有代码与品牌的开源许可尚未指定；不要将 GitHub 可见性当作版权许可。第三方许可证独立保留。发布步骤见 [GitHub 准备](docs/github-ready.md)。
+项目采用自定义「方寸非商业源码公开许可 1.0」，不采用 MIT/GPL 等标准开源许可，也不承诺“违反即固定赔偿”。第三方许可证独立保留，品牌不另授商标许可。发布步骤见 [GitHub 准备](docs/github-ready.md)。

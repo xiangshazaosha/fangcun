@@ -45,6 +45,9 @@ class StarterTest(unittest.TestCase):
         self.assertIn('%E5%8A%A8%E8%83%BD', html)
         self.assertFalse((deck / 'media/carrier').exists())
         self.assertTrue((deck / 'THIRD-PARTY-NOTICES.txt').exists())
+        self.assertEqual((deck / 'LICENSE').read_bytes(), (ROOT / 'LICENSE').read_bytes())
+        self.assertTrue((deck / 'fonts/OFL.txt').is_file())
+        self.assertTrue((deck / 'vendor/THREE-LICENSE.txt').is_file())
 
     def test_homepage_modes(self):
         for mode, count in [('particles', 6), ('cover', 5), ('none', 4)]:

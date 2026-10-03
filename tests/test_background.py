@@ -33,6 +33,7 @@ class BackgroundTest(unittest.TestCase):
         self.assertTrue((output / 'vendor/three.core.min.js').is_file())
         self.assertTrue((output / 'brand/pointer.svg').is_file())
         self.assertTrue((output / '启动背景.bat').is_file())
+        self.assertEqual((output / 'LICENSE').read_bytes(), (ROOT / 'LICENSE').read_bytes())
 
     def test_no_overwrite(self):
         output = self.base / 'background'
@@ -49,7 +50,7 @@ class BackgroundTest(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         record = json.loads((output / 'manifest.json').read_text(encoding='utf-8'))
         self.assertEqual(record['background'], 'koi-ocean')
-        for key in ['media/ocean/main.js', 'media/ocean/index.html', 'media/ocean/style.css', 'media/ocean/assets/coast-base-v2.png', 'media/ocean/assets/koi-top-v1.png', 'vendor/THREE-LICENSE.txt']:
+        for key in ['media/ocean/main.js', 'media/ocean/index.html', 'media/ocean/style.css', 'media/ocean/assets/coast-base-v2.png', 'media/ocean/assets/koi-top-v1.png', 'vendor/THREE-LICENSE.txt', 'LICENSE']:
             self.assertIn(key, record['sources'])
             self.assertTrue((output / key).is_file())
 

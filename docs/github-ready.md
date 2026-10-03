@@ -1,8 +1,8 @@
-# GitHub 发布准备
+# GitHub 发布与边界
 
-当前阶段只初始化本地 Git 与首次提交，不创建远程仓库、不推送。
+当前远程是 [xiangshazaosha/fangcun](https://github.com/xiangshazaosha/fangcun)，主分支 `main`。GitHub 用户名已由 `zjgxkj` 改为 `xiangshazaosha`；原有本地提交已推送。用户随后要求公开，并明确“不得用于商业用途”。
 
-上传前确定 **归属账号/组织、仓库名、public/private**；默认建议私有 `fangcun`。无需向 agent 提供 token。自有代码尚未指定开源许可，不默认套 MIT。
+本项目自有部分采用根 [LICENSE](../LICENSE) 的自定义非商业源码公开许可；称为 **Source-available**，不是标准开源。不默认套 MIT/GPL，不用它覆盖第三方组件的原许可。许可边界见 [许可说明](licensing.md)。未来其他仓库上传前仍需确定归属、仓库名和可见性；不要向 agent 提供 token。
 
 从仓库根检查：
 
@@ -21,4 +21,4 @@ git ls-files
 gh repo create OWNER/fangcun --private --source . --remote origin --push
 ```
 
-若已有仓库，用确认的 URL 设置 origin 再推送 main；不能覆盖不相关 remote，不能强推。public 必须用户明确选择且完成资源复核后再用。保存实际远程结果，不把“命令准备好”报告成“已上传”。
+若已有仓库，用确认的 URL 设置 origin 再推送 main；不能覆盖不相关 remote，不能强推。当前仓库由 private 改 public 前，必须先将 LICENSE 和相应说明提交、推送，通过边界检查后再执行。保存实际远程可见性及 main 提交结果，不把“命令准备好”报告成“已上传”。

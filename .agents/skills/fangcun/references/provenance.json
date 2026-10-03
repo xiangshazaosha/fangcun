@@ -7,8 +7,8 @@
     },
     "assets/styles/ocean/ASSETS.md": {
       "sourceSHA256": "024fb8ffbdd924dac87cc116676114265163e3b6050e4379ade8eb3e7d6b2b91",
-      "snapshotSHA256": "841f0cc8202a926dfc8f82ce603d879525fa994314d11a54831a8d0cf8d02b80",
-      "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged."
+      "snapshotSHA256": "b85d3e8dd5952b07a14217e5399107a383b48cdd747d08bdef482bfb785d69c9",
+      "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged. Noncommercial licensing notice or delivery propagation, 2026-10-03; upstream source hash retained."
     },
     "assets/styles/ocean/brand/fangcun-logo.svg": {
       "sourceSHA256": "194c98a87ec158d87430664a3713d4262d261ef47f17c76ef46abddcaba8644a",
@@ -96,8 +96,8 @@
     },
     "references/code-reference.md": {
       "sourceSHA256": "d7e0789108d7fbf55eb62def383645bd6ed790dcabaf51d5bba8584215f58caf",
-      "snapshotSHA256": "48798fc2f69c23c31ce7bfdf92f97b290b9349176e50d4b9b53ccff2c4a2e6b7",
-      "adaptation": "Fangcun intake clarification: mandatory Logo choice, text-only wordmark design, particle text alternatives and custom input; original workspace unchanged."
+      "snapshotSHA256": "9b6113512737f48c62b9e34030df924f7961e788a89f50896114e594e59847f7",
+      "adaptation": "Fangcun intake clarification: mandatory Logo choice, text-only wordmark design, particle text alternatives and custom input; original workspace unchanged. Noncommercial licensing notice or delivery propagation, 2026-10-03; upstream source hash retained."
     },
     "references/design-language.md": {
       "sourceSHA256": "a4eb2100b946a2bb38e25069ad47876ba2f4ce0c07b0fd0c18c0a4665b6b9be3",
@@ -141,8 +141,8 @@
     },
     "scripts/new_deck.py": {
       "sourceSHA256": "9ba09386d45ff0857531627db39e16a35c7cfa45f11771c0b9118bcb1525e48b",
-      "snapshotSHA256": "40f0271c8470c568f9cc3ea0e1b9dd5b26fd161aa172475abd7d92fcec64a6c2",
-      "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged."
+      "snapshotSHA256": "fcf598697f7be51063eb13c5b2d00dfa8ac229d821660aeb3a845b8843b3454b",
+      "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged. Noncommercial licensing notice or delivery propagation, 2026-10-03; upstream source hash retained."
     },
     "scripts/serve.py": {
       "sourceSHA256": "70beba8feb7c9b058994ace46d5fd15dbeaab4fed137f87ad95bb14062927072",

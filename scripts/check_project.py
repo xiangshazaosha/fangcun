@@ -11,6 +11,10 @@ SKILL = ROOT / '.agents/skills/fangcun'
 
 def check():
     problems = []
+    license_file = ROOT / 'LICENSE'
+    skill_license = SKILL / 'LICENSE'
+    if not license_file.is_file() or not skill_license.is_file() or license_file.read_bytes() != skill_license.read_bytes():
+        problems.append('Missing or inconsistent Fangcun noncommercial license')
     registry = json.loads((SKILL / 'references/styles/registry.json').read_text(encoding='utf-8'))
     ids = set()
     code = (SKILL / 'references/code-reference.md').read_text(encoding='utf-8')
@@ -64,7 +68,7 @@ def check():
                 problems.append('Large tracked asset: ' + name)
     if problems:
         raise SystemExit('\n'.join(problems))
-    print('PASS: references, defaults, fingerprints, C23–C28 and Git boundaries')
+    print('PASS: references, defaults, fingerprints, C23–C28, license and Git boundaries')
 
 
 if __name__ == '__main__':
