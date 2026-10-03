@@ -1,0 +1,87 @@
+{
+  "title": "从想法到行动",
+  "brand": "方寸 FANGCUN",
+  "logo": "brand/fangcun-logo.svg",
+  "particleText": "FANGCUN",
+  "background": "none",
+  "model": "none",
+  "slides": [
+    {
+      "type": "prologue",
+      "title": "让思考汇聚成行动",
+      "eyebrow": "IDEAS INTO ACTION"
+    },
+    {
+      "type": "cover",
+      "title": "从想法到行动",
+      "eyebrow": "观察 · 理解 · 实践",
+      "subtitle": "把问题说清楚，让改变看得见。"
+    },
+    {
+      "type": "chapter",
+      "number": "01",
+      "eyebrow": "第一章",
+      "title": "理解问题",
+      "goal": "从真实观察出发，建立共同的判断依据。"
+    },
+    {
+      "type": "cards",
+      "title": "先回答三个问题",
+      "items": [
+        {
+          "title": "看见什么",
+          "body": "把观察到的事实与个人判断分开。"
+        },
+        {
+          "title": "为什么重要",
+          "body": "明确问题的影响与需要改变的部分。"
+        },
+        {
+          "title": "下一步做什么",
+          "body": "选择一个可以验证的行动。"
+        }
+      ],
+      "conclusion": "用事实建立共识，用行动验证判断。"
+    },
+    {
+      "type": "process",
+      "title": "把想法变成可验证的行动",
+      "items": [
+        {
+          "title": "提出假设",
+          "body": "说明预期发生的变化。"
+        },
+        {
+          "title": "小步验证",
+          "body": "保留过程与结果记录。"
+        },
+        {
+          "title": "复盘改进",
+          "body": "根据结果调整下一步。"
+        }
+      ],
+      "conclusion": "每一步都有输入、反馈与明确的下一步。"
+    },
+    {
+      "type": "closing",
+      "title": "让改变真正发生",
+      "eyebrow": "从共识走向实践",
+      "items": [
+        {
+          "title": "观察",
+          "body": "回到事实"
+        },
+        {
+          "title": "行动",
+          "body": "从小处开始"
+        },
+        {
+          "title": "复盘",
+          "body": "持续改进"
+        }
+      ],
+      "conclusion": "带着一个清楚的问题，开始下一次实践。"
+    }
+  ],
+  "homepage": "particles"
+}

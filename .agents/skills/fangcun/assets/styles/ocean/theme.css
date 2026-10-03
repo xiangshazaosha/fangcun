@@ -1,0 +1,43 @@
+/* C29: ocean tokens; C30: stable glass and scene layers; C32: chapter model. */
+@font-face{font-family:OceanSans;src:url('./fonts/NotoSansSC.ttf') format('truetype');font-weight:100 900;font-display:swap}
+:root{--stage-bg:#dcebef;--slide-bg:transparent;--ink:#103747;--muted:#4f6e78;--blue:#08a8c1;--blue-dark:#087f99;--blue-light:#7adceb;--green:#25c8a0;--green-light:#9ae8c9;--border:rgba(255,255,255,.50);--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box}body{font-family:OceanSans,'Microsoft YaHei UI',sans-serif;color:var(--ink)}
+.deck-stage,.deck-stage *{cursor:url('./brand/pointer.svg') 5 5,default}
+.slide{background:transparent}.slide.light{background:radial-gradient(circle at 69% 48%,rgba(194,236,244,.55),transparent 31%),linear-gradient(180deg,#fbfdfe,#f3fafc)}
+.global-ocean,.global-video{position:absolute;inset:0;width:1920px;height:1080px;border:0;z-index:0;pointer-events:none;object-fit:cover;background:#dcebef url('./media/ocean/assets/coast-base-v2.png') center/cover}
+.slide>*{position:relative;z-index:5}.brand{position:absolute;left:80px;top:50px;width:250px;height:62px;object-fit:contain;object-position:left center;z-index:60}
+.folio{position:absolute;right:80px;bottom:45px;font-size:18px;font-weight:750;letter-spacing:.14em;color:rgba(16,55,71,.68);z-index:60}
+.page-title{position:absolute;left:86px;top:128px;margin:0;font-size:58px;font-weight:900;line-height:1.1;letter-spacing:-.035em}
+.eyebrow{margin:0 0 25px;color:var(--blue);font-size:25px;font-weight:850;letter-spacing:.13em}
+.glass{--gx:50%;--gy:50%;position:relative;isolation:isolate;overflow:hidden;border:1px solid var(--border);background:rgba(255,255,255,.035);backdrop-filter:blur(8px) saturate(135%);-webkit-backdrop-filter:blur(8px) saturate(135%);box-shadow:inset 0 1px 0 rgba(255,255,255,.58),0 22px 50px rgba(12,62,76,.13);border-radius:38px}
+.glass::after{content:"";position:absolute;inset:-1px;z-index:-1;border-radius:inherit;background:radial-gradient(430px circle at var(--gx) var(--gy),rgba(255,255,255,.38),rgba(122,220,235,.1) 24%,transparent 55%);opacity:0;transition:opacity .28s ease;pointer-events:none}.glass:hover::after{opacity:.55}
+.cover-copy{position:absolute;left:92px;top:255px;width:790px}.cover-copy h1{font-size:68px;line-height:1.2;font-weight:900;letter-spacing:-.045em;margin:0}.subtitle{font-size:27px;line-height:1.6;color:var(--muted);margin-top:35px}
+.cover-next{position:absolute;right:84px;bottom:72px;padding:14px 18px 14px 27px;display:flex;align-items:center;gap:22px;border:1px solid rgba(255,255,255,.82);border-radius:999px;background:rgba(244,252,253,.70);box-shadow:0 18px 45px rgba(5,73,91,.18);backdrop-filter:blur(12px) saturate(140%);color:var(--ink);font:inherit;font-size:20px;font-weight:850}
+.cover-next i{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:var(--blue-dark);color:white;font-style:normal;font-size:25px}.cover-next:focus-visible{outline:3px solid var(--blue-dark);outline-offset:5px}
+.chapter-no{position:absolute;left:70px;top:170px;width:230px;height:230px;border-radius:50%;display:grid;place-items:center;font-size:105px;font-weight:900;color:var(--blue);background:linear-gradient(145deg,rgba(122,220,235,.25),rgba(255,255,255,.36));box-shadow:0 22px 50px rgba(12,62,76,.14)}
+.chapter-copy{position:absolute;left:70px;top:510px;width:360px;z-index:12}.chapter-copy p{margin:0 0 18px;color:var(--blue);font-size:25px;font-weight:850}.chapter-copy h2{margin:0;font-size:54px;line-height:1.15;font-weight:900}
+.chapter-tech-note{position:absolute;right:86px;top:238px;z-index:28;width:520px;display:grid;grid-template-columns:28px 118px 1fr;align-items:start}.chapter-tech-note i{height:2px;margin-top:10px;background:linear-gradient(90deg,var(--blue-dark),rgba(8,168,193,.18))}.chapter-tech-note b{font-size:21px;font-weight:900}.chapter-tech-note small{display:block;margin-top:8px;font-size:17px;line-height:1.45;color:var(--muted)}
+.carrier-stage{position:absolute;width:1120px;height:630px;pointer-events:none}.carrier-stage img,.carrier-stage canvas{position:absolute;inset:0;width:1120px;height:630px;filter:drop-shadow(0 32px 30px rgba(22,75,91,.18))}.carrier-stage canvas{opacity:0}.carrier-stage.ready img{opacity:0}.carrier-stage.ready canvas{opacity:1}.chapter-carrier{right:145px;top:250px;z-index:25;transform:scale(1.28);transform-origin:center}
+.card-grid{position:absolute;left:86px;right:86px;top:250px;display:grid;grid-template-columns:repeat(var(--columns),minmax(0,1fr));gap:28px}
+.content-card{height:510px;padding:42px;display:flex;flex-direction:column}.card-number{color:var(--blue);font-size:26px;font-weight:850}.content-card h3{font-size:32px;line-height:1.3;margin:55px 0 20px}.content-card p{font-size:25px;line-height:1.6;margin:0;color:var(--ink)}
+/* Local contrast correction for deep-water columns; never mask the whole scene. */
+.slide[data-background="ocean"] [data-contrast="light"]{color:#eafcfc}
+.slide[data-background="ocean"] [data-contrast="light"] p{color:#d2edf0}
+.slide[data-background="ocean"] [data-contrast="light"] .card-number{color:var(--blue-light)}
+.slide[data-background="ocean"] .folio,.closing:has(.closing-ocean) .folio{color:rgba(226,249,251,.8)}
+.slide[data-background="ocean"] .build-progress,.closing:has(.closing-ocean) .build-progress{color:#b9edf2}
+.statement{position:absolute;left:120px;right:120px;bottom:82px;border-radius:999px;padding:22px 42px;text-align:center;font-size:25px;font-weight:760;line-height:1.45;border:1px solid rgba(255,255,255,.62);backdrop-filter:blur(8px) saturate(135%);background:linear-gradient(135deg,rgba(37,200,160,.34),rgba(154,232,201,.16))}
+[data-build]{opacity:0;transform:translateY(18px) scale(.985);pointer-events:none;transition:opacity .42s var(--ease),transform .42s var(--ease),box-shadow .28s ease}
+[data-build].shown{opacity:1;transform:none;pointer-events:auto}[data-build].current{box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 22px 54px rgba(8,168,193,.20)}
+.build-progress{position:absolute;right:80px;bottom:76px;font-size:17px;font-weight:800;color:var(--blue-dark)}
+.particle-frame{position:absolute;inset:0;width:1920px;height:1080px;border:0;z-index:2}.opening-copy{position:absolute;left:92px;bottom:118px;pointer-events:none}.opening-copy p{color:var(--blue-dark);font-size:17px;font-weight:850;letter-spacing:.2em}.opening-copy h1{font-size:48px;line-height:1.12;margin:0}.opening-hint{position:absolute;right:88px;bottom:112px;pointer-events:none;font-size:16px;color:var(--muted)}
+.closing-ocean-shell{position:absolute;right:0;top:0;width:980px;height:1080px;z-index:3;overflow:hidden;clip-path:polygon(18% 0,100% 0,100% 100%,0 100%);pointer-events:none;background:#dcebef url('./media/ocean/assets/coast-base-v2.png') center/cover}.closing-ocean{width:100%;height:100%;border:0;pointer-events:none}
+.closing-ocean-shell::after{content:"";position:absolute;left:88px;top:-70px;width:2px;height:1220px;background:rgba(255,255,255,.72);transform:rotate(9.25deg);pointer-events:none}
+.closing-copy{position:absolute;left:96px;top:205px;width:790px;z-index:20}.closing-copy h2{font-size:68px;line-height:1.08;margin:0 0 46px;letter-spacing:-.045em}.closing-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.closing-actions>div{min-height:154px;padding:23px 22px;border:1px solid rgba(255,255,255,.72);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.74),rgba(232,248,250,.48))}.closing-actions span{display:block;color:var(--blue);font-size:16px;font-weight:900}.closing-actions b{display:block;margin-top:14px;font-size:25px}.closing-actions p{font-size:18px;line-height:1.5}.closing-line{width:690px;margin:48px 0 0;font-size:36px;line-height:1.35;font-weight:900;color:var(--green)}
+@media(prefers-reduced-motion:reduce){[data-build]{transition:none!important;transform:none}.glass::after{transition:none}}
+@media print{[data-build]{opacity:1!important;transform:none!important}.build-progress,.cover-next,.opening-hint{display:none}.slide{background:#f3fafc!important}}
+/* C38: keyboard/touch exit even when WebGL is unavailable. */
+.opening-skip{position:absolute;right:76px;bottom:72px;z-index:20;padding:18px 28px;border:1px solid #4f6e78;border-radius:999px;background:#f3fafc;color:#103747;font:inherit;font-size:22px;cursor:pointer}
+.opening-skip:focus-visible{outline:4px solid #087f99;outline-offset:6px}
+.opening-hint{right:300px;bottom:100px}
+@media print{.opening-skip{display:none!important}}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="104" viewBox="0 0 420 104" role="img" aria-labelledby="title desc">
+  <title id="title">方寸 FANGCUN</title>
+  <desc id="desc">方寸中英文默认品牌标志</desc>
+  <rect x="2" y="2" width="96" height="96" fill="none" stroke="#171813" stroke-width="4"/>
+  <rect x="70" y="70" width="28" height="28" fill="#D8C94B" stroke="#171813" stroke-width="4"/>
+  <text x="22" y="68" fill="#171813" font-family="Noto Sans SC, sans-serif" font-size="52" font-weight="900">寸</text>
+  <text x="124" y="50" fill="#171813" font-family="Noto Sans SC, sans-serif" font-size="42" font-weight="900" letter-spacing="5">方寸</text>
+  <text x="126" y="83" fill="#6F7069" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="7">FANGCUN</text>
+</svg>

@@ -1,0 +1,159 @@
+{
+  "source": "YanDeck project-private validated runtime; portable Fangcun snapshot",
+  "files": {
+    "assets/brand/fangcun-logo.svg": {
+      "sourceSHA256": "194c98a87ec158d87430664a3713d4262d261ef47f17c76ef46abddcaba8644a",
+      "snapshotSHA256": "194c98a87ec158d87430664a3713d4262d261ef47f17c76ef46abddcaba8644a"
+    },
+    "assets/styles/ocean/ASSETS.md": {
+      "sourceSHA256": "024fb8ffbdd924dac87cc116676114265163e3b6050e4379ade8eb3e7d6b2b91",
+      "snapshotSHA256": "841f0cc8202a926dfc8f82ce603d879525fa994314d11a54831a8d0cf8d02b80",
+      "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged."
+    },
+    "assets/styles/ocean/brand/fangcun-logo.svg": {
+      "sourceSHA256": "194c98a87ec158d87430664a3713d4262d261ef47f17c76ef46abddcaba8644a",
+      "snapshotSHA256": "194c98a87ec158d87430664a3713d4262d261ef47f17c76ef46abddcaba8644a"
+    },
+    "assets/styles/ocean/brand/pointer.svg": {
+      "sourceSHA256": "2602dca817990ba816c9589e431678793edef7bafff3f4abf961fed41a5c013c",
+      "snapshotSHA256": "2602dca817990ba816c9589e431678793edef7bafff3f4abf961fed41a5c013c"
+    },
+    "assets/styles/ocean/build_deck.py": {
+      "sourceSHA256": "9cc1efd447779144bb943599f1f1569d6c24b3374b5f6f1addcfbc262bba24fb",
+      "snapshotSHA256": "d375e43a5cc5a1019d4825636591f1f0fa967759f3ed78e2baa6107415ec6aba",
+      "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged."
+    },
+    "assets/styles/ocean/deck.js": {
+      "sourceSHA256": "5a06e3ab3fc9c7431e987378a47dd820db2b23d13903aede03783cbf75dcf11f",
+      "snapshotSHA256": "feff349d50fb49d2a84868ef8c81ce3fa1b653276fe7e470241c9e5c4dc0dd04",
+      "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged."
+    },
+    "assets/styles/ocean/deck.json": {
+      "sourceSHA256": "b7b69cadf11628a48db66ee3ad155442ae237f351486459f8febc6c365078959",
+      "snapshotSHA256": "629f86426e6c50bdfa2ae2d949664124e1b3823820506cab2c52853dd99d9814",
+      "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged."
+    },
+    "assets/styles/ocean/fonts/NotoSansSC.ttf": {
+      "sourceSHA256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+      "snapshotSHA256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da"
+    },
+    "assets/styles/ocean/fonts/OFL.txt": {
+      "sourceSHA256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9",
+      "snapshotSHA256": "babcfe66c8a098b2fa279bc724a3a342f8124f77ce18941fbcc1bbb39823cded"
+    },
+    "assets/styles/ocean/media/ocean/assets/coast-base-v2.png": {
+      "sourceSHA256": "28212be821e0c78373c4437e0773e25539a4672f9b1f1d32a19e15cf83828ec3",
+      "snapshotSHA256": "28212be821e0c78373c4437e0773e25539a4672f9b1f1d32a19e15cf83828ec3"
+    },
+    "assets/styles/ocean/media/ocean/assets/koi-top-v1.png": {
+      "sourceSHA256": "b7b4cac7769471d65597ee6d59a6540307ec280d5d023c040af113731c63d1ce",
+      "snapshotSHA256": "b7b4cac7769471d65597ee6d59a6540307ec280d5d023c040af113731c63d1ce"
+    },
+    "assets/styles/ocean/media/ocean/index.html": {
+      "sourceSHA256": "a8b7ae6268a5c3f472e79ad6646c49bb6f66e1d1be64782c74a957ef578a5a4d",
+      "snapshotSHA256": "ae81c8aa259399c0691618f474b1df2b450eee02c3fe085c05487d9ea278068c"
+    },
+    "assets/styles/ocean/media/ocean/main.js": {
+      "sourceSHA256": "54291c6f14a0bb6640f87537aaf7c5c369cdd2295e46a6c6aefa276411df714f",
+      "snapshotSHA256": "85927cfad089986a1beec7a491b7b1730a26b8456ce9c90543c1194b63ed47f9"
+    },
+    "assets/styles/ocean/media/ocean/style.css": {
+      "sourceSHA256": "390be8b5efbd1750ebce5b63415a8d0203937b73aaf31b7da382bf6af18864b8",
+      "snapshotSHA256": "88e0bbe38ddf04f7d038c260f45ab491c55032e5548717e935e3f2b58ff92ca7"
+    },
+    "assets/styles/ocean/media/particles/index.html": {
+      "sourceSHA256": "f6c59f874fae015dcc2c670de2171ef755ed2fc994e42d54f5c930e4d828c245",
+      "snapshotSHA256": "ca050b1196d6331e2e1e172b24cd7382f6c48688f51dc7d1cb6fdf5b51dff433"
+    },
+    "assets/styles/ocean/modules/carrier.js": {
+      "sourceSHA256": "8638c2db59415761259c13bb7119bba8d3ce5a7f2c76e99c9344cf013fd62da6",
+      "snapshotSHA256": "775a591cdfb15ab5c6474f557309509bb97541951c5fff458995ef2c5713fcad"
+    },
+    "assets/styles/ocean/template.html": {
+      "sourceSHA256": "488b8cb1a7e18c02c71bd474886a1977e5386796deb4632007807574c32b0a67",
+      "snapshotSHA256": "488b8cb1a7e18c02c71bd474886a1977e5386796deb4632007807574c32b0a67"
+    },
+    "assets/styles/ocean/theme.css": {
+      "sourceSHA256": "64de3e91e3e61b0e2b45e34adc9a42871fc81d86d770df115c7a09cb0efbb2ac",
+      "snapshotSHA256": "c64e2f31e5b80eaf2b8a27bfa1fbd365f9c8f7f5b235027fec5c92ec6bcb4836",
+      "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged."
+    },
+    "assets/styles/ocean/vendor/THREE-LICENSE.txt": {
+      "sourceSHA256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+      "snapshotSHA256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+    },
+    "assets/styles/ocean/vendor/three.core.min.js": {
+      "sourceSHA256": "61ba0df005b05991361d040d8ff670e1aadfd0ce7aeebd1fdb0725957a8957de",
+      "snapshotSHA256": "61ba0df005b05991361d040d8ff670e1aadfd0ce7aeebd1fdb0725957a8957de"
+    },
+    "assets/styles/ocean/vendor/three.module.min.js": {
+      "sourceSHA256": "e2b5ee6bccd38fd6d8a2428546b83c5f2426d84b152ef82be8055556e3b40eb6",
+      "snapshotSHA256": "e2b5ee6bccd38fd6d8a2428546b83c5f2426d84b152ef82be8055556e3b40eb6"
+    },
+    "assets/styles/ocean/viewport-base.css": {
+      "sourceSHA256": "f6fdb110d1afdf7b04a3708a1250ce403c6af8ccb25576e542eb1d308532e469",
+      "snapshotSHA256": "7424eb3fca809d85eedb3019a7b5bff571dc553c7b73b02120d068e12b2a6a03"
+    },
+    "references/code-reference.md": {
+      "sourceSHA256": "d7e0789108d7fbf55eb62def383645bd6ed790dcabaf51d5bba8584215f58caf",
+      "snapshotSHA256": "0a547f955fff15882bdf0eee01b21c185aed1bfdf6a556e2198a458673fa3bdf",
+      "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged."
+    },
+    "references/design-language.md": {
+      "sourceSHA256": "a4eb2100b946a2bb38e25069ad47876ba2f4ce0c07b0fd0c18c0a4665b6b9be3",
+      "snapshotSHA256": "1af4cdf6f3c90644b1ec8f19a49c57fada059eeb7eee853d4db9c73764201ee8"
+    },
+    "references/interaction-patterns.md": {
+      "sourceSHA256": "94171bc38459dcab260888b7f2ada9b5d18186f67793b3cd03d285a3865d4462",
+      "snapshotSHA256": "94171bc38459dcab260888b7f2ada9b5d18186f67793b3cd03d285a3865d4462"
+    },
+    "references/production-workflow.md": {
+      "sourceSHA256": "d42a3884efa109e64ab8e3c606e7d3369a73d4e956b4d767090d4caf9e16ef62",
+      "snapshotSHA256": "99543f78c9f355b7f2ea655a08c0fa0c86c8315ddb4fdcd0da6938c1e6a6958c",
+      "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged."
+    },
+    "references/qa-checklist.md": {
+      "sourceSHA256": "628c72cab848ceff899b79f5847da62670394115919c7b97b5a9276561456ed9",
+      "snapshotSHA256": "45e1622d446b5a71547847ab1165f63116df2351e82bcd0ed472c9e806986685"
+    },
+    "references/style-catalog.md": {
+      "sourceSHA256": "ec9ebf700ddfe44fb091d109a67f622f980813d9b05427dc5cf03b393f8fa61d",
+      "snapshotSHA256": "fbdc6539757baa02e6b4917d028e84554d15b723e656f46e3c577f1ad294b937"
+    },
+    "references/style-extraction.md": {
+      "sourceSHA256": "e7947acff857bd8d81a10582fa9bdcb2c8e484dc46fb06a15822b3e08d419b0b",
+      "snapshotSHA256": "e7947acff857bd8d81a10582fa9bdcb2c8e484dc46fb06a15822b3e08d419b0b"
+    },
+    "references/styles/registry.json": {
+      "sourceSHA256": "3559bcfccd6484bdd5be288afea4b7b81e4172f4581d154e4f44c5738446aa12",
+      "snapshotSHA256": "3559bcfccd6484bdd5be288afea4b7b81e4172f4581d154e4f44c5738446aa12"
+    },
+    "references/styles/transparent-glass.md": {
+      "sourceSHA256": "d5b2fa4f09e804065ca4dc45b0a86bc755a52de55b97e48005be0a6ec8738b0c",
+      "snapshotSHA256": "7be1eb2361af2da60c26e2fce2d3aa8de03cabee7343ec061e9c7098a684eaf6"
+    },
+    "references/styles/two-tone.md": {
+      "sourceSHA256": "bfaecfceeb5651eeaa456cbab233dcaa1a454349d0fba5583589ba70b43f15a7",
+      "snapshotSHA256": "b1919054c3ababbec7475e6f8fea6fb7a39b5e5f437ceb16c2bbdef85fa82cd8",
+      "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged."
+    },
+    "scripts/new_deck.py": {
+      "sourceSHA256": "9ba09386d45ff0857531627db39e16a35c7cfa45f11771c0b9118bcb1525e48b",
+      "snapshotSHA256": "40f0271c8470c568f9cc3ea0e1b9dd5b26fd161aa172475abd7d92fcec64a6c2",
+      "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged."
+    },
+    "scripts/serve.py": {
+      "sourceSHA256": "70beba8feb7c9b058994ace46d5fd15dbeaab4fed137f87ad95bb14062927072",
+      "snapshotSHA256": "70beba8feb7c9b058994ace46d5fd15dbeaab4fed137f87ad95bb14062927072"
+    }
+  },
+  "twoToneCodeSHA256": "26428ed509ec9d470b67950a618e33dbbeba6ab7b073faaabdb0a316d433d020",
+  "adaptationNotes": [
+    "Five-question lifetime intake",
+    "Homepage particles/cover/none and skip",
+    "No default media",
+    "Private carrier/waves excluded from Git",
+    "Historical unit delivery/extraction profiles omitted",
+    "No machine-absolute runtime paths"
+  ]
+}

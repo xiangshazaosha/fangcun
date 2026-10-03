@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="generator" content="YanDeck｜交互式网页演示制作系统">
+  <link rel="icon" href="data:,">
+  <title>FANGCUN Three.js 粒子交互参考</title>
+  <style>
+    /* ===========================================
+       FIXED 16:9 STAGE: MANDATORY BASE STYLES
+       Include this ENTIRE file in every presentation.
+       Slides are authored at 1920×1080 and scaled as a whole.
+       =========================================== */
+    html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg,#000)}
+    .deck-viewport{position:fixed;inset:0;overflow:hidden;background:var(--stage-bg,#000)}
+    .deck-stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform-origin:0 0;background:var(--slide-bg,#fff)}
+    .slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;display:block;visibility:hidden;opacity:0;pointer-events:none;background:var(--slide-bg,#fff)}
+    .slide.active,.slide.visible{visibility:visible;opacity:1;pointer-events:auto;z-index:1}
+    img,video,canvas,svg{max-width:100%;max-height:100%}
+    .deck-controls{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:1000}
+    @media print{html,body{width:1920px;height:auto;overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible;background:#fff}.deck-stage{position:static;width:auto;height:auto;transform:none!important;background:none}.slide{position:relative;display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}.deck-controls{display:none!important}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important}}
+
+    /* === LOCAL FONT === */
+    @font-face{font-family:"Noto Sans SC Deck";src:url('../../fonts/NotoSansSC.ttf') format('truetype');font-style:normal;font-weight:100 900;font-display:swap}
+
+    /* === SCENE TOKENS === */
+    :root{--stage-bg:#dcebef;--slide-bg:transparent;--cyan:#7adceb;--cyan-strong:#08a8c1;--green:#25c8a0;--ink:#103747}
+    *{box-sizing:border-box}
+    body{font-family:"Noto Sans SC Deck","Microsoft YaHei UI",sans-serif;color:var(--ink)}
+    .slide{isolation:isolate;background:
+      radial-gradient(circle at 69% 48%,rgba(194,236,244,.62),transparent 34%),
+      radial-gradient(circle at 18% 20%,rgba(122,220,235,.13),transparent 30%),
+      linear-gradient(180deg,#fbfdfe 0%,#f3fafc 100%)}
+    .slide::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:
+      radial-gradient(ellipse at 50% 52%,rgba(8,168,193,.055),transparent 46%),
+      linear-gradient(90deg,rgba(8,127,153,.022) 1px,transparent 1px),
+      linear-gradient(rgba(8,127,153,.018) 1px,transparent 1px);background-size:auto,96px 96px,96px 96px;mask-image:linear-gradient(90deg,transparent,rgba(0,0,0,.55) 20%,#000 80%,transparent)}
+    .slide::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;box-shadow:inset 0 0 150px rgba(8,127,153,.035)}
+
+    /* === THREE.JS PARTICLE STAGE === */
+    #particleCanvas{position:absolute;inset:0;z-index:2;width:1920px;height:1080px;max-width:none;max-height:none;outline:none;touch-action:none;cursor:crosshair}
+    #particleCanvas:focus-visible{box-shadow:inset 0 0 0 2px rgba(140,238,250,.45)}
+    .fallback-word{position:absolute;left:50%;top:51%;z-index:1;transform:translate(-50%,-50%);font-size:320px;font-weight:900;letter-spacing:.06em;color:rgba(8,127,153,.12);filter:blur(1px);pointer-events:none;transition:opacity .35s ease}
+    .webgl-ready .fallback-word{opacity:0}
+
+    /* === ORIGINAL FANGCUN BRAND === */
+    .brand{position:absolute;left:80px;top:55px;z-index:8;display:flex;align-items:center;gap:16px;font-size:23px;font-weight:760;color:#103747;pointer-events:none}
+    .brand strong{color:var(--cyan-strong);font-size:28px;font-weight:900;letter-spacing:.08em}
+    .brand i{height:25px;width:2px;background:rgba(16,55,71,.35)}
+
+    /* === ACCESSIBLE DESCRIPTION === */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+  <div class="deck-viewport">
+    <main class="deck-stage" id="deckStage" aria-label="FANGCUN 粒子交互参考页">
+      <section class="slide active visible" aria-label="FANGCUN 粒子文字">
+        <div class="brand" id="particleBrand" aria-label="FANGCUN 方寸"><strong>FANGCUN</strong><i></i><span>方寸</span></div>
+        <div class="fallback-word" aria-hidden="true">FANGCUN</div>
+        <canvas id="particleCanvas" width="1920" height="1080" tabindex="0" role="img" aria-label="粒子先聚合成 FANGCUN，移动鼠标可将近侧推远并弯曲文字，单击可使粒子散开后重组"></canvas>
+        <p class="sr-only">移动鼠标改变 FANGCUN 粒子的立体弯曲方向。单击、按空格或回车使粒子散开并重新聚合。</p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    /* === FIXED STAGE SCALING === */
+    const stage=document.getElementById('deckStage');
+    function scaleStage(){const s=Math.min(innerWidth/1920,innerHeight/1080);const x=(innerWidth-1920*s)/2;const y=(innerHeight-1080*s)/2;stage.style.transform=`translate(${x}px,${y}px) scale(${s})`}
+    scaleStage();addEventListener('resize',scaleStage,{passive:true});
+  </script>
+
+  <script type="module">
+    import * as THREE from '../../vendor/three.module.min.js';
+
+    /* === ENGINE SETUP === */
+    const canvas=document.getElementById('particleCanvas');
+    const slide=document.querySelector('.slide');
+    const params=new URLSearchParams(location.search);
+    if(params.get('logo')==='0')document.getElementById('particleBrand').style.display='none';
+    const particleText=(params.get('text')||'FANGCUN').trim().slice(0,12)||'FANGCUN';
+    document.querySelector('.fallback-word').textContent=particleText;
+    canvas.setAttribute('aria-label',particleText+' 粒子文字，点击散开并重新聚合');
+    const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:false,powerPreference:'high-performance'});
+    renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+    renderer.setSize(1920,1080,false);
+    renderer.setClearColor(0x000000,0);
+    renderer.outputColorSpace=THREE.SRGBColorSpace;
+
+    const scene=new THREE.Scene();
+    const camera=new THREE.PerspectiveCamera(38,1920/1080,1,4000);
+    camera.position.set(0,0,1500);
+    camera.lookAt(0,0,0);
+
+    /* === DETERMINISTIC RANDOM === */
+    let randomState=0x43535343;
+    function random(){randomState=(1664525*randomState+1013904223)>>>0;return randomState/4294967296}
+    function randomNormal(){return Math.sqrt(-2*Math.log(Math.max(.0001,random())))*Math.cos(Math.PI*2*random())}
+    function clamp01(v){return Math.max(0,Math.min(1,v))}
+    function smooth01(v){v=clamp01(v);return v*v*(3-2*v)}
+    function easeOut(v){v=clamp01(v);return 1-Math.pow(1-v,3)}
+
+    /* === TEXT SAMPLING === */
+    const sampler=document.createElement('canvas');
+    sampler.width=1500;sampler.height=470;
+    const context=sampler.getContext('2d',{willReadFrequently:true});
+    await document.fonts.load('900 330px "Noto Sans SC Deck"');
+    context.clearRect(0,0,sampler.width,sampler.height);
+    context.fillStyle='#fff';
+    context.font='900 330px "Noto Sans SC Deck",sans-serif';
+    context.textAlign='center';context.textBaseline='middle';
+    const textSize=Math.min(330,330*1320/Math.max(1,context.measureText(particleText).width));
+    context.font=`900 ${textSize}px "Noto Sans SC Deck",sans-serif`;
+    context.fillText(particleText,sampler.width/2,sampler.height/2+6);
+    const image=context.getImageData(0,0,sampler.width,sampler.height).data;
+    const samples=[];
+    const sampleAlpha=(x,y)=>image[(Math.max(0,Math.min(sampler.height-1,y))*sampler.width+Math.max(0,Math.min(sampler.width-1,x)))*4+3];
+    for(let y=12;y<sampler.height-12;y+=2){
+      for(let x=12;x<sampler.width-12;x+=2){
+        if(image[(y*sampler.width+x)*4+3]>92){
+          /* A small signed-distance approximation separates the quiet body of
+             each glyph from its exposed edge.  The alpha gradient points into
+             the text; invert it (and canvas Y) to obtain an outward world-space
+             normal for the soft particle fringe. */
+          const r=8;
+          const l=sampleAlpha(x-r,y),rr=sampleAlpha(x+r,y),u=sampleAlpha(x,y-r),d=sampleAlpha(x,y+r);
+          const ul=sampleAlpha(x-r,y-r),ur=sampleAlpha(x+r,y-r),dl=sampleAlpha(x-r,y+r),dr=sampleAlpha(x+r,y+r);
+          const surround=(l+rr+u+d+ul+ur+dl+dr)/(8*255);
+          const edge=Math.pow(clamp01(1-surround),.72);
+          const gx=(rr-l)+.62*(ur+dr-ul-dl);
+          const gy=(d-u)+.62*(dl+dr-ul-ur);
+          const length=Math.hypot(gx,gy);
+          const nx=length>.001?-gx/length:0;
+          const ny=length>.001?gy/length:0;
+          samples.push([x,y,edge,nx,ny]);
+        }
+      }
+    }
+
+    /* === PARTICLE ATTRIBUTES === */
+    const count=46000;
+    const startPositions=new Float32Array(count*3);
+    const textPositions=new Float32Array(count*3);
+    const burstVectors=new Float32Array(count*3);
+    const seeds=new Float32Array(count);
+    const sizes=new Float32Array(count);
+    const edgeFactors=new Float32Array(count);
+    const edgeNormals=new Float32Array(count*2);
+    const colors=new Float32Array(count*3);
+    const cyan=new THREE.Color(0x08a8c1),bright=new THREE.Color(0x7adceb),green=new THREE.Color(0x25c8a0),blue=new THREE.Color(0x087f99);
+
+    let textHalfWidth=1;
+    for(let i=0;i<count;i++){
+      const index=i*3;
+      const sample=samples[Math.floor(random()*samples.length)]||[750,235];
+      const tx=(sample[0]-750)*.98+(random()-.5)*1.6;
+      textHalfWidth=Math.max(textHalfWidth,Math.abs(tx));
+      const ty=(235-sample[1])*.98+(random()-.5)*1.6;
+      const tz=randomNormal()*15;
+      textPositions[index]=tx;textPositions[index+1]=ty;textPositions[index+2]=tz;
+      edgeFactors[i]=sample[2]||0;
+      edgeNormals[i*2]=sample[3]||0;edgeNormals[i*2+1]=sample[4]||0;
+
+      /* Several fine helical streams sweep through a genuine near/far volume. */
+      const angle=random()*Math.PI*2;
+      const radius=260+Math.pow(random(),.60)*600;
+      const band=i%4;
+      startPositions[index]=Math.cos(angle)*radius;
+      startPositions[index+1]=Math.sin(angle*2+band*.80)*(50+band*23)+randomNormal()*20;
+      startPositions[index+2]=Math.sin(angle)*radius*.62+randomNormal()*38;
+
+      // Independent 3D launch impulses, not a scale transform or a cloud target.
+      const length=Math.hypot(tx,ty)||1;
+      const angleOut=random()*Math.PI*2;
+      const dx=tx/length*.55+Math.cos(angleOut)*.90;
+      const dy=ty/length*.55+Math.sin(angleOut)*.90;
+      const dz=(random()-.5)*1.55;
+      const norm=Math.hypot(dx,dy,dz)||1;
+      const speed=360+Math.pow(random(),.72)*1050;
+      burstVectors[index]=dx/norm*speed;
+      burstVectors[index+1]=dy/norm*speed;
+      burstVectors[index+2]=dz/norm*speed*.72;
+
+      const seed=random();seeds[i]=seed;sizes[i]=.95+Math.pow(random(),1.7)*1.80;
+      const mixA=random();const mixB=random();
+      const color=mixA<.18?green:(mixA>.82?bright:(mixB>.52?cyan:blue));
+      colors[index]=color.r;colors[index+1]=color.g;colors[index+2]=color.b;
+    }
+
+    const geometry=new THREE.BufferGeometry();
+    geometry.setAttribute('position',new THREE.BufferAttribute(startPositions,3));
+    geometry.setAttribute('aText',new THREE.BufferAttribute(textPositions,3));
+    geometry.setAttribute('aBurst',new THREE.BufferAttribute(burstVectors,3));
+    geometry.setAttribute('aSeed',new THREE.BufferAttribute(seeds,1));
+    geometry.setAttribute('aSize',new THREE.BufferAttribute(sizes,1));
+    geometry.setAttribute('aEdge',new THREE.BufferAttribute(edgeFactors,1));
+    geometry.setAttribute('aEdgeNormal',new THREE.BufferAttribute(edgeNormals,2));
+    geometry.setAttribute('aColor',new THREE.BufferAttribute(colors,3));
+
+    /* === PARTICLE SHADER === */
+    const material=new THREE.ShaderMaterial({
+      transparent:true,depthWrite:false,blending:THREE.NormalBlending,
+      uniforms:{
+        uBendHalfWidth:{value:textHalfWidth},uCameraDistance:{value:1500},uTime:{value:0},uIntro:{value:reduceMotion?1:0},uBurst:{value:0},uGather:{value:0},uHover:{value:0},
+        uPointer:{value:new THREE.Vector2()},uMouseWorld:{value:new THREE.Vector2()},uPixelRatio:{value:renderer.getPixelRatio()}
+      },
+      vertexShader:`
+        attribute vec3 aText;attribute vec3 aBurst;attribute float aSeed;attribute float aSize;attribute float aEdge;attribute vec2 aEdgeNormal;attribute vec3 aColor;
+        uniform float uBendHalfWidth;uniform float uCameraDistance;uniform float uTime;uniform float uIntro;uniform float uBurst;uniform float uGather;uniform float uHover;uniform vec2 uPointer;uniform vec2 uMouseWorld;uniform float uPixelRatio;
+        varying vec3 vColor;varying float vAlpha;varying vec2 vDirection;varying float vStreak;varying float vEdge;varying float vTracer;
+        float curve(float t){return t*t*(3.0-2.0*t);}
+        mat2 rotate2d(float a){float c=cos(a),s=sin(a);return mat2(c,-s,s,c);}
+        void main(){
+          float introDelay=aSeed*.23+clamp((aText.x+620.0)/1240.0,0.0,1.0)*.10;
+          float intro=curve(clamp((uIntro-introDelay)/(1.0-.33),0.0,1.0));
+          vec3 formed=aText;
+          float xn=clamp(formed.x/620.0,-1.0,1.0);
+          float yn=clamp(formed.y/165.0,-1.0,1.0);
+
+          /* Natural magnetic fringe: distance from the sampled edge, particle
+             probability and a low-frequency spatial field jointly control the
+             halo. Density falls continuously toward an irregular outer limit;
+             individual particles wander, but the whole outline never pulses. */
+          float edgeBand=smoothstep(.055,.48,aEdge);
+          vec2 outward=normalize(aEdgeNormal+vec2(.0001));
+          vec2 tangent=vec2(-outward.y,outward.x);
+          float idleGate=1.0-.70*uHover;
+          float flowA=uTime*.47+aText.x*.0105+aText.y*.014+aSeed*1.9;
+          float flowB=-uTime*.31-aText.x*.007+aText.y*.011+aSeed*2.7;
+          vec2 curl=vec2(cos(flowA)-sin(flowB),sin(flowA)+cos(flowB));
+          float interior=1.0-edgeBand;
+          /* The dense body keeps its original magnetic flow.  The fringe has
+             a separate motion field below, so neither layer has to be frozen. */
+          formed.xy+=curl*1.28*interior*idleGate;
+          formed.z+=(sin(flowA*.72)*7.0+cos(flowB*.81)*4.5)*interior*idleGate;
+          float fringeRandom=fract(sin(aSeed*91.73)*43758.5453);
+          float keepRandom=fract(sin((aSeed+2.17)*127.31)*24634.6345);
+          float region=.5+.25*sin(aText.x*.017+aText.y*.013+1.1)
+            +.25*sin(-aText.x*.009+aText.y*.027+2.4);
+          region=smoothstep(.10,.90,region);
+          float reach=pow(fringeRandom,2.05);
+          float fringeSpread=edgeBand*(1.0+15.0*reach*(.42+.78*region));
+          float far=clamp(fringeSpread/15.0,0.0,1.0);
+          /* The sparse fringe must visibly live rather than look pinned.  Each
+             outer particle follows its own slow, bounded orbit: mostly along
+             the contour, with a smaller in/out component.  Both speed and
+             travel increase continuously with distance, so the solid body is
+             stable while the truly outermost particles move the most. */
+          float outerMotion=edgeBand*smoothstep(.16,.72,far);
+          float driftPhase=uTime*(.34+.16*keepRandom)+aSeed*51.0;
+          float driftPhaseB=uTime*(.27+.14*fringeRandom)+aSeed*37.0;
+          vec2 fringeDrift=tangent*(sin(driftPhase)+.15*sin(driftPhaseB*1.7))*(.35+far*2.25)
+            +outward*(cos(driftPhaseB)+.12*sin(driftPhase*1.3))*(.22+far*1.15);
+          float independentReach=fringeSpread+outerMotion*sin(driftPhase*.63+aSeed*8.0)*1.6;
+          formed.xy+=outward*independentReach+outerMotion*fringeDrift;
+          formed.z+=outerMotion*(sin(driftPhase*.79)*(2.0+far*7.0)+cos(driftPhaseB)*far*2.0);
+          float tracer=0.0;
+          vEdge=far;vTracer=tracer;
+
+          /* Restore the original single continuous surface. No glyph centers,
+             masks, rigid letters, or letter-specific scale/depth are involved.
+             A deeper version of the same arch blends smoothly into the wings. */
+          float bendX=clamp(formed.x/450.0,-1.0,1.0);
+          float arch=1.0-bendX*bendX;
+          formed.y+=uPointer.y*205.0*arch*uHover;
+          formed.z+=uPointer.y*900.0*arch*uHover+uPointer.y*245.0*yn*uHover;
+          float twist=uPointer.x*(1.54+.31*abs(uPointer.y))*xn*uHover;
+          formed.yz=rotate2d(twist)*formed.yz;
+          formed.xz=rotate2d(-uPointer.x*.34*uHover)*formed.xz;
+          formed.y+=uPointer.x*110.0*sin(xn*3.14159)*uHover;
+          formed.z+=uPointer.x*1000.0*xn*uHover;
+
+          /* The same smooth cursor pressure field as before, never a repulsion hole. */
+          vec2 delta=formed.xy-uMouseWorld;
+          float influence=exp(-dot(delta,delta)/85000.0)*uHover;
+          formed.z+=influence*235.0;
+          formed.z=aText.z-(formed.z-aText.z);
+          // More far-side travel prevents early saturation of the stronger bend.
+          formed.z=clamp(formed.z,-1900.0,420.0);
+
+          /* Center-up gesture: bend the entire ribbon around a circular spine.
+             The top of the gesture reaches a little beyond 180 degrees.
+             Every particle uses its continuous X coordinate, never its letter. */
+          float centerGesture=1.0-smoothstep(.18,.65,abs(uPointer.x));
+          float arcStrength=clamp(uPointer.y/.90,0.0,1.0);
+          float arcMix=centerGesture*smoothstep(0.0,.16,uPointer.y)*uHover;
+          float halfAngle=max(.0001,arcStrength*1.64);
+          float radius=uBendHalfWidth/halfAngle;
+          float theta=aText.x/uBendHalfWidth*halfAngle;
+          vec2 circularSpine=vec2(radius*sin(theta),
+            radius*(cos(theta)-cos(halfAngle))*(1.0+.80*arcStrength));
+          // Rotate each strip cross-section with the arc instead of shearing letters.
+          vec2 circularPoint=circularSpine+aText.y*vec2(sin(theta),cos(theta));
+          formed.xy=mix(formed.xy,circularPoint,arcMix);
+
+
+          vec3 cloud=position;
+          cloud.xz=rotate2d(uTime*.045)*cloud.xz;
+          cloud.y+=sin(uTime*.65+aSeed*28.0)*12.0;
+          vec3 p=mix(cloud,formed,intro);
+          float flight=sin(intro*3.14159265);
+          p.y+=sin(aSeed*25.0+intro*4.8)*75.0*flight;
+          p.z+=cos(aSeed*18.0+intro*3.2)*180.0*flight;
+
+          /* Ballistic displacement per particle. All originate at their own
+             letter position; EVERY particle leaves, and none of the word scales.
+             A short travelling shock launches them over ~0.5 s, preserving the
+             initial silhouette through inertia, not through a fixed text layer. */
+          float spread=clamp(uBurst*(1.0-uGather),0.0,1.0);
+          float launchDelay=aSeed*.42+clamp(length(aText.xy)/500.0,0.0,1.0)*.08;
+          float age=max(0.0,spread*1.9-launchDelay);
+          float drag=.72+aSeed*.32;
+          float ramp=3.5;
+          // Analytic integral of impulse*(1-exp(-3.5t))*exp(-drag*t).
+          float travel=(1.0-exp(-drag*age))/drag
+            -(1.0-exp(-(drag+ramp)*age))/(drag+ramp);
+          vec3 displaced=formed+aBurst*travel;
+          // Mild curl and downward drift bend trajectories without relocating origins.
+          displaced.xy+=vec2(-aBurst.y,aBurst.x)*(.045*age*age);
+          displaced.y-=22.0*age*age;
+          p=mix(p,displaced,step(.000001,uBurst)*intro);
+          vDirection=normalize(aBurst.xy+vec2(.001));
+          vStreak=step(.94,aSeed)*smoothstep(.015,.14,age)
+            *(1.0-smoothstep(.85,1.55,age));
+
+          vec4 mv=modelViewMatrix*vec4(p,1.0);
+          gl_Position=projectionMatrix*mv;
+          float perspective=clamp(uCameraDistance/max(300.0,-mv.z),.42,2.80);
+          gl_PointSize=max(.8,aSize*uPixelRatio*perspective)*mix(1.0,.78,far)*(1.0+vStreak*2.4+edgeBand*.04);
+          float sheen=pow(max(0.0,1.0-abs(aText.x/500.0-sin(uTime*.38))*.95),8.0);
+          vColor=mix(aColor,vec3(.035,.53,.63),.15);
+          vColor=mix(vColor,vec3(.20,.76,.80),sheen*.20);
+          float gradientFade=mix(1.0,.38,pow(far,.78));
+          float keepThreshold=.02+.76*pow(far,1.22)*mix(1.0,.72,region);
+          /* Only particles near the sparse/no-sparse boundary fade in and out.
+             This lets the random gaps migrate softly without making the whole
+             FANGCUN outline breathe as one shape. */
+          float lifeWave=sin(driftPhase*.57+aSeed*11.0)*(.020+.070*far);
+          float fringeKeep=smoothstep(keepThreshold-.055,keepThreshold+.055,keepRandom+lifeWave);
+          float irregularKeep=mix(1.0,fringeKeep,smoothstep(.08,.38,far));
+          float twinkle=mix(.88+.12*sin(aSeed*19.0+uTime*.55),.94+.04*sin(driftPhase),edgeBand);
+          vAlpha=(.50+.45*intro)*twinkle*mix(.72,1.0,smoothstep(.65,1.25,perspective))*gradientFade*irregularKeep;
+
+        }`,
+      fragmentShader:`
+        varying vec3 vColor;varying float vAlpha;varying vec2 vDirection;varying float vStreak;varying float vEdge;varying float vTracer;
+        void main(){
+          vec2 p=gl_PointCoord-.5;
+          vec2 trail=vec2(dot(p,vDirection),dot(p,vec2(-vDirection.y,vDirection.x)));
+          trail.y/=mix(1.0,.22,vStreak);
+          float r=length(trail);if(r>.5)discard;
+          float core=1.0-smoothstep(.12,.44,r);
+          float halo=(1.0-smoothstep(.18,.50,r))*.16;
+          gl_FragColor=vec4(vColor,(core+halo)*vAlpha);
+        }`
+    });
+    const particles=new THREE.Points(geometry,material);
+    scene.add(particles);
+
+    /* === AMBIENT DEPTH FIELD === */
+    const dustCount=3200;
+    const dustPositions=new Float32Array(dustCount*3),dustColors=new Float32Array(dustCount*3),dustSizes=new Float32Array(dustCount);
+    for(let i=0;i<dustCount;i++){
+      const j=i*3;dustPositions[j]=(random()-.5)*2000;dustPositions[j+1]=(random()-.5)*1050;dustPositions[j+2]=-300-random()*900;
+      const c=random()>.78?green:cyan;dustColors[j]=c.r;dustColors[j+1]=c.g;dustColors[j+2]=c.b;dustSizes[i]=.45+random()*1.5;
+    }
+    const dustGeometry=new THREE.BufferGeometry();dustGeometry.setAttribute('position',new THREE.BufferAttribute(dustPositions,3));dustGeometry.setAttribute('color',new THREE.BufferAttribute(dustColors,3));dustGeometry.setAttribute('size',new THREE.BufferAttribute(dustSizes,1));
+    const dustMaterial=new THREE.PointsMaterial({size:1.15,transparent:true,opacity:.13,depthWrite:false,vertexColors:true,blending:THREE.NormalBlending,sizeAttenuation:true});
+    const dust=new THREE.Points(dustGeometry,dustMaterial);scene.add(dust);
+    document.documentElement.classList.add('webgl-ready');
+
+    /* === POINTER MAPPING === */
+    const pointerTarget=new THREE.Vector2(),pointerCurrent=new THREE.Vector2();
+    const worldTarget=new THREE.Vector2(),worldCurrent=new THREE.Vector2();
+    let hoverTarget=0,hoverCurrent=0,lastInteraction=performance.now();
+    function setPointer(event){
+      const rect=canvas.getBoundingClientRect();
+      const x=clamp01((event.clientX-rect.left)/rect.width),y=clamp01((event.clientY-rect.top)/rect.height);
+      pointerTarget.set(x*2-1,1-y*2);
+      worldTarget.set((x*2-1)*720,(1-y*2)*330);
+      hoverTarget=1;lastInteraction=performance.now();
+    }
+    canvas.addEventListener('pointerenter',setPointer);
+    canvas.addEventListener('pointermove',setPointer,{passive:true});
+    canvas.addEventListener('pointerleave',()=>{hoverTarget=0;pointerTarget.set(0,0);worldTarget.set(0,0)});
+
+    /* === FRAME-DRIVEN RELEASE → RETURN → PRESENTED-FRAME HANDOFF === */
+    const timing={intro:4.2,release:1.9,hold:.45,gather:2.35};
+    let phase=reduceMotion?'ready':'intro',phaseAge=0,sceneTime=0,queuedBurst=false;
+    let completionSent=false,assembledFrames=0,assembledPresented=false,formedAt=0,handoffAt=0;
+    let previous=performance.now(),raf=0,playing=params.get('paused')!=='1';
+    const status=document.querySelector('.sr-only');
+    function enterPhase(next){phase=next;phaseAge=0}
+    function triggerBurst(event){
+      if(!playing||completionSent)return;
+      if(phase==='intro'){queuedBurst=true;return;}
+      if(phase!=='ready')return; // Rapid clicks never reset a release already in flight.
+      hoverTarget=0;pointerTarget.set(0,0);worldTarget.set(0,0);
+      status.textContent='粒子正在散开；FANGCUN 重新完整聚拢后进入课程。';
+      enterPhase(reduceMotion?'seal':'release');
+      if(parent!==window)parent.postMessage({type:'yandeck-particle',action:'disperse'},location.origin);
+      if(!raf&&reduceMotion)raf=requestAnimationFrame(render);
+    }
+    canvas.addEventListener('click',triggerBurst);
+    canvas.addEventListener('keydown',event=>{if(['Enter',' ','ArrowRight','ArrowDown','PageDown'].includes(event.key)){event.preventDefault();triggerBurst()}});
+    function render(now){
+      raf=0;if(!playing)return;
+      // The previous RAF drew the final assembled image. Hand off at this very
+      // next presentation opportunity: no seal timer, shine hold, or extra frame.
+      if(phase==='seal'&&assembledFrames===1&&!completionSent){
+        assembledPresented=true;completionSent=true;handoffAt=now;
+        status.textContent='FANGCUN 已完整聚合，进入课程。';
+        if(parent!==window){parent.postMessage({type:'yandeck-particle',action:'reassembled'},location.origin);return;}
+        enterPhase('ready');completionSent=false;assembledFrames=0;assembledPresented=false;
+      }
+      const delta=Math.max(0,Math.min(.075,(now-previous)/1000));previous=now;
+      sceneTime+=delta;phaseAge+=delta;
+      if(phase==='intro'&&phaseAge>=timing.intro){enterPhase('ready');if(queuedBurst){queuedBurst=false;triggerBurst();}}
+      if(phase==='release'&&phaseAge>=timing.release)enterPhase('hold');
+      if(phase==='hold'&&phaseAge>=timing.hold)enterPhase('gather');
+      if(phase==='gather'&&phaseAge>=timing.gather)enterPhase('seal');
+      const inCycle=['release','hold','gather','seal'].includes(phase);
+      const uniforms=material.uniforms;
+      uniforms.uTime.value=sceneTime;
+      uniforms.uIntro.value=phase==='intro'?smooth01(phaseAge/timing.intro):1;
+      uniforms.uBurst.value=phase==='release'?clamp01(phaseAge/timing.release):(['hold','gather'].includes(phase)?1:0);
+      uniforms.uGather.value=phase==='gather'?clamp01(phaseAge/timing.gather):(phase==='seal'?1:0);
+      pointerCurrent.lerp(inCycle?new THREE.Vector2():pointerTarget,1-Math.exp(-delta*12));
+      worldCurrent.lerp(worldTarget,1-Math.exp(-delta*11));
+      hoverCurrent+=((inCycle?0:hoverTarget)-hoverCurrent)*(1-Math.exp(-delta*12));
+      uniforms.uPointer.value.copy(pointerCurrent);uniforms.uMouseWorld.value.copy(worldCurrent);
+      uniforms.uHover.value=phase==='seal'?0:hoverCurrent;
+      dust.rotation.z=sceneTime*.0025;dust.rotation.y=sceneTime*.004;
+      const aimX=inCycle?0:pointerCurrent.x*28,aimY=inCycle?0:pointerCurrent.y*16;
+      camera.position.x+=(aimX-camera.position.x)*(1-Math.exp(-delta*9));
+      camera.position.y+=(aimY-camera.position.y)*(1-Math.exp(-delta*9));
+      // Dolly closer and widen the lens together: the rest-size text stays put,
+      // but a real depth offset now creates much stronger near/far perspective.
+      const dolly=1500-550*hoverCurrent;
+      camera.position.z=dolly+(phase==='intro'?75*(1-uniforms.uIntro.value):0);
+      camera.fov=2*Math.atan(1500*Math.tan(19*Math.PI/180)/dolly)*180/Math.PI;
+      camera.updateProjectionMatrix();
+      uniforms.uCameraDistance.value=dolly;
+      camera.lookAt(0,0,0);
+      renderer.render(scene,camera);
+      if(phase==='seal'){assembledFrames=1;formedAt=now;}
+      if(playing&&(!reduceMotion||phase==='seal'))raf=requestAnimationFrame(render);
+    }
+    function resetScene(){
+      sceneTime=0;phaseAge=0;phase=reduceMotion?'ready':'intro';queuedBurst=false;
+      completionSent=false;assembledFrames=0;assembledPresented=false;formedAt=0;handoffAt=0;
+      pointerTarget.set(0,0);pointerCurrent.set(0,0);worldTarget.set(0,0);worldCurrent.set(0,0);hoverTarget=0;hoverCurrent=0;
+      camera.position.set(0,0,1500);
+      material.uniforms.uIntro.value=reduceMotion?1:0;material.uniforms.uBurst.value=0;material.uniforms.uGather.value=0;
+    }
+    function pauseScene(){playing=false;cancelAnimationFrame(raf);raf=0;}
+    function resumeScene(reset=false){if(reset)resetScene();previous=performance.now();playing=true;if(!raf)raf=requestAnimationFrame(render);}
+    addEventListener('message',event=>{
+      if(event.source!==parent||event.origin!==location.origin||event.data?.type!=='yandeck-particle')return;
+      if(event.data.action==='pause')pauseScene();
+      else if(event.data.action==='resume')resumeScene(false);
+      else if(event.data.action==='reset')resumeScene(true);
+      else if(event.data.action==='disperse')triggerBurst();
+    });
+    let resumeAfterVisibility=false;
+    document.addEventListener('visibilitychange',()=>{
+      if(document.hidden){resumeAfterVisibility=playing;pauseScene();}
+      else if(resumeAfterVisibility){resumeAfterVisibility=false;resumeScene(false);}
+    });
+    // Read-only diagnostic state for animation and navigation regression tests.
+    window.YanDeckParticles={state:()=>({text:particleText,phase,phaseAge,count,intro:material.uniforms.uIntro.value,
+      burst:material.uniforms.uBurst.value,gather:material.uniforms.uGather.value,
+      assembledPresented,completionSent,playing,queuedBurst,formedAt,handoffAt,hover:hoverCurrent,pointer:pointerCurrent.toArray(),cameraDistance:camera.position.z,fov:camera.fov})};
+    if(playing)raf=requestAnimationFrame(render);
+    if(parent!==window)parent.postMessage({type:'yandeck-particle',action:'ready'},location.origin);
+
+  </script>
+</body>
+</html>

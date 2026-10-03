@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "styles": [
+    {"id":"transparent-glass","name":"透明玻璃风格","version":"1.0.0","status":"documented","reference":"references/styles/transparent-glass.md","runtime":null,"codeRefs":["C04","C07","C14","C20"],"defaultBackground":"none","defaultModel":"none"},
+    {"id":"two-tone","name":"双色风","version":"1.0.0","status":"documented","reference":"references/styles/two-tone.md","runtime":null,"codeRefs":["C23","C24","C25","C26","C27","C28"],"defaultBackground":"none","defaultModel":"none"},
+    {"id":"ocean","name":"海洋风","version":"1.1.1","status":"runnable","reference":"references/styles/ocean.md","runtime":"assets/styles/ocean","codeRefs":["C29","C30","C31","C32","C33","C34","C35","C36","C37"],"defaultBackground":"none","defaultModel":"none"}
+  ]
+}

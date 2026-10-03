@@ -1,0 +1,6 @@
+interface:
+  display_name: "方寸｜互动演示制作"
+  short_description: "把内容做成互动网页演示，以五项需求确认品牌、风格、背景与首页开场"
+  default_prompt: "使用 $fangcun 根据我的内容制作互动演示稿，先提炼首页文字，用最多五个需求问题确认必要选择。"
+policy:
+  allow_implicit_invocation: true

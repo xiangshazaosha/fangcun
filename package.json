@@ -1,0 +1,8 @@
+{
+  "name": "fangcun-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local development QA for Fangcun interactive HTML presentation skill",
+  "scripts": {"qa": "node scripts/qa_deck.cjs"},
+  "devDependencies": {"playwright": "1.58.2"}
+}

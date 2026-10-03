@@ -1,0 +1,22 @@
+# Customer work, media with unconfirmed redistribution rights
+/decks/
+/成品/
+/.private-assets/
+/.qa/
+/.tools/
+/.frontend-slides/
+**/media/carrier/
+**/media/waves/
+# Local environments and caches
+__pycache__/
+*.py[cod]
+node_modules/
+.venv/
+.env
+.env.*
+!.env.example
+*.log
+*.zip
+.DS_Store
+Thumbs.db
+/.publish-config.json

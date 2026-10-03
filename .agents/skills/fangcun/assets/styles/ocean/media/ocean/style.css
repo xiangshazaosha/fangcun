@@ -1,0 +1,24 @@
+:root { color-scheme: light; background: #dfe9e4; }
+* { box-sizing: border-box; }
+html, body, #app { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body { background: #dfe9e4; }
+#app { position: relative; isolation: isolate; }
+#ocean { position: absolute; inset: 0; display: block; width: 100%; height: 100%; touch-action: none; }
+/* The cover ocean lives in an iframe: the parent deck cursor cannot inherit into it. */
+html, body, #app, #ocean { cursor: url('../../brand/pointer.svg') 5 5, default; }
+.brand {
+  position: absolute; z-index: 2; top: 34px; left: 40px;
+  display: flex; align-items: center; gap: 12px;
+  color: rgba(13, 45, 50, .72); pointer-events: none;
+  font-family: "Arial Narrow", "Microsoft YaHei", sans-serif;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.38));
+}
+.brand[hidden] { display: none; }
+.brand strong { font-size: 25px; line-height: 1; font-weight: 900; letter-spacing: -.05em; }
+.brand i { width: 1px; height: 18px; background: currentColor; opacity: .35; }
+.brand span { font-size: 12px; font-weight: 700; letter-spacing: .18em; }
+@media (max-width: 720px) {
+  .brand { top: 20px; left: 22px; gap: 9px; }
+  .brand strong { font-size: 20px; }.brand i { height: 15px; }.brand span { font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) { #ocean { filter: saturate(.86); } }
