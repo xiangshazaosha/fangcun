@@ -14,5 +14,7 @@
 | 独立冻结、依赖闭包、风格注册 | style-extraction.md、registry、C34–C36 |
 | 五题总预算、先读资料再提出首页词 | intake.md、homepage.md、C38 |
 | 本地 Git、资源排除、发布前复核 | docs/github-ready.md、C39 |
+| skill 作者/演示制作用户/背景索取的任务区分 | SKILL.md 的工作对象入口，不展示测试 PPT |
+| 三条锦鲤动态背景独立资源 | backgrounds.md、export_background.py、C40 |
 
 从原项目迁移通用规范与已验证可执行模块，去除机器绝对运行路径、旧归档专用配置及原业务内容。双色 C23–C28 原样保留；本快照不反向覆盖旧工作区。

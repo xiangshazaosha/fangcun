@@ -2,6 +2,8 @@
 
 本仓库主要交付 `.agents/skills/fangcun/`，不是旧演示成品的重命名。
 
+- 维护本 skill 和制作用户演示是两类任务；需求问卷仅在后一类使用。不得为 skill 作者自动打开测试 PPT；用户要背景时只给背景资源。
+
 - 制作方寸互动演示前读 `.agents/skills/fangcun/SKILL.md`；开工需求累计最多五题，已知项不重复问。
 - 新稿放 `decks/<topic-slug>/`；成品在用户确认后以独立快照归档，不覆盖原稿。
 - skill、风格和代码以本仓库为可移植真源；无 D 盘绝对运行依赖。第三方 skill 只能项目内 vendoring，不安装到用户全局目录。

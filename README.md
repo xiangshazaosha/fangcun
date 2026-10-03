@@ -4,6 +4,8 @@
 
 核心入口：[SKILL.md](.agents/skills/fangcun/SKILL.md)。项目自动发现 `.agents/skills` 的环境可调用 `$fangcun`；其他环境直接让制作 agent 阅读入口。无需安装到全局 skill 目录。
 
+**这是制作用户演示稿的 skill 项目，不是一份送给 skill 作者的 PPT。** 五项需求是今后接到制作任务时，agent 向那位制作用户了解的内容；维护本项目不执行这份问卷，不自动打开测试样稿。
+
 ## 怎么用
 
 > 使用 $fangcun，根据这些资料制作一份互动演示稿。先根据内容建议首页文字，开工需求问题不要超过五个。
@@ -32,6 +34,19 @@ python decks/my-topic/serve.py
 自有视频/Logo：用 `--config` 指向完整 JSON，资源相对该 JSON 所在目录；`background=video` 必须有 video 和 poster。输出会复制所需文件，脱离原工作目录运行。
 
 实时海洋明确选用时加 `--background ocean`。旧默认海浪和船模是可选私有素材，本机保留在 `.private-assets/`，**不会进入 GitHub 仓库**；明确选择海浪用 `--background waves`，船模用 `--model carrier`。新克隆若无这些资源会清楚报缺失而不是生成坏包。用户可提供获授权资源替换，见 [资源说明](docs/assets-and-rights.md)。
+
+## 内置游鱼动态背景（单独资源，不是 PPT）
+
+海岸、沙滩、三条锦鲤，移动鼠标产生轻波，点击产生强波；现有资源无钓竿/捕鱼玩法。代码与纹理完整保存在 skill 里，可供制作用户选择，见 [背景目录](.agents/skills/fangcun/references/backgrounds.md)。
+
+独立导出（无封面、正文或翻页）：
+
+```powershell
+python .agents/skills/fangcun/scripts/export_background.py --background koi-ocean --output backgrounds/koi-ocean
+python backgrounds/koi-ocean/serve.py
+```
+
+导出目录有入口、源代码、图片、Three.js、指针、许可证和启动脚本，不依赖原项目或互联网；导出是生成副本，唯一维护源仍在 skill。原始动态海浪也可用 `--background waves` 导出，需本机有私有素材。自有背景在接到用户制作任务后替换，不强迫沿用内置资源。
 
 ## 检查与开发
 

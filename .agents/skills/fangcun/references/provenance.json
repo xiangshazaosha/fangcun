@@ -96,7 +96,7 @@
     },
     "references/code-reference.md": {
       "sourceSHA256": "d7e0789108d7fbf55eb62def383645bd6ed790dcabaf51d5bba8584215f58caf",
-      "snapshotSHA256": "0a547f955fff15882bdf0eee01b21c185aed1bfdf6a556e2198a458673fa3bdf",
+      "snapshotSHA256": "dde6943c9ad48a735baf688c90a383415a88a0bc4b1203599945836f19ba267e",
       "adaptation": "Portable Fangcun intake/homepage/defaults or reference-path adaptation; original workspace unchanged."
     },
     "references/design-language.md": {

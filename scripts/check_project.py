@@ -58,7 +58,7 @@ def check():
             if not name:
                 continue
             parts = Path(name).parts
-            if any(p in ('.private-assets', 'decks', '成品', 'node_modules', '.qa') for p in parts) or Path(name).name.startswith('.env'):
+            if any(p in ('.private-assets', 'decks', 'backgrounds', '成品', 'node_modules', '.qa') for p in parts) or Path(name).name.startswith('.env'):
                 problems.append('Private/generated resource tracked: ' + name)
             if (ROOT / name).stat().st_size >= 50_000_000:
                 problems.append('Large tracked asset: ' + name)

@@ -699,3 +699,7 @@ function setDuoMode(slide, mode){
 ## C39｜本地 Git 与资源发布边界
 
 规则真源：仓库根 `.gitignore`、`docs/assets-and-rights.md`、`docs/github-ready.md`。检查真源：`scripts/check_project.py`。用户稿件、成品、私有海浪/船模、凭据、QA 与依赖缓存不进入 Git。准备上传不是实际发布授权；确认归属、名字、可见性后才创建/推送。开源许可证不自动授予。
+
+## C40｜背景独立资源交付
+
+唯一导出器：`scripts/export_background.py`。游鱼场景真源仍是 C30 的 media/ocean，避免维护两份代码。输出只含背景所需场景、纹理、库、指针、许可证及入口/启动器/说明/hash 清单，没有演示封面、正文、逐项呈现或翻页。文档真源：`references/backgrounds.md`。目标存在即拒绝覆盖；锦鲤场景不假称有钓鱼玩法；默认海浪仍是私有可选资源。
